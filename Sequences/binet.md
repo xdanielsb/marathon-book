@@ -37,8 +37,8 @@ func nth_fibo(n int) (nth float64) {
 }
 
 func main() {
-	n := 100
-	fmt.Println(" nth fibo =  ", nth_fibo(n))
+	n := 10
+	fmt.Println(" nth fibo =  ", math.Ceil(nth_fibo(n)))
 }
 ```
 
