@@ -3,7 +3,7 @@
 
 | Case          | Time Complexity |
 | ------------- |:---------------:|
-| Always        | O(n! / (n-r)! r!)          |
+| Always        | O(C(n,r))          |
 
 
 ```python   
