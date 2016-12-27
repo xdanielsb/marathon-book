@@ -1,6 +1,5 @@
 ### Change a  number from a base ob to a base od.
-* Time Complexity Worst case: )
-* Time Complexity Best Case: )
+* n is the number of digits in the number
 
 | Case          | Time Complexity |
 | ------------- |:---------------:|
