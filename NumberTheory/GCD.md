@@ -1,5 +1,4 @@
 ### Calc greatest common divisor between two numbers
-* n is the 
 
 |               | Case             | Time Complexity |
 | ------------- |:----------------:|:---------------:|

@@ -1,14 +1,14 @@
 ### COMPUTE THE NTH FIBONACCI NUMBER USING BINETS FORMULA 
 
-*Definition of fibonacci
+####Definition of fibonacci
 +![Alt Fibonacci](assets/fibo.png?raw=true "Fibonacci")
 
 
-*Definition of Binet's formula
-+![Alt Binets Formula](screenshots/binetsformula.png?raw=true "Binets Formula")
+####Definition of Binet's formula
++![Alt Binets Formula](assets/binetsformula.png?raw=true "Binets Formula")
 
 
-*n is the nth number in the fibonacci sequence
+####n is the nth number in the fibonacci sequence
 
 
 |               | Case             | Time Complexity |
