@@ -4,6 +4,7 @@
  */
 
 /*REFERENCES
+ * This method is contributed by Chirag Agarwal.
  * https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form
  * http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
  */
