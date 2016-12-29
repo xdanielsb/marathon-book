@@ -7,10 +7,14 @@
 | Best Case     | O(3(n)          |
 
 ```python   
+# coding=utf-8
 """ CHANGE THE BASE OF A NUMBER
     ob -> origin base
     od -> destiny base
 """
+
+chars = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+
 def changeBase(number, ob,od):
     if ob == 10:
         return tob(number, od)
@@ -27,5 +31,5 @@ def to10(n, b, pos =0):
 """FROM TEN BASE TO ANOTHER BASE"""
 def tob(n, b):
     if n == 0: return ""
-    return   tob(n // b, b) + str(n % b)
+    return   tob(n // b, b) + chars[n % b]
 ```

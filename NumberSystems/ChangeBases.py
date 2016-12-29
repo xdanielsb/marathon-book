@@ -1,7 +1,11 @@
+# coding=utf-8
 """ CHANGE THE BASE OF A NUMBER
     ob -> origin base
     od -> destiny base
 """
+
+chars = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+
 def changeBase(number, ob,od):
     if ob == 10:
         return tob(number, od)
@@ -18,12 +22,13 @@ def to10(n, b, pos =0):
 """FROM TEN BASE TO ANOTHER BASE"""
 def tob(n, b):
     if n == 0: return ""
-    return   tob(n // b, b) + str(n % b)
+    return   tob(n // b, b) + chars[n % b]
 
 
 
 if __name__ == "__main__":
     print ( tob(7,2))
-    print ( tob(252,2))
+    print ( tob(252,16))
+    print ( tob(234,15))
     print ( to10(1000,2))
     print ( changeBase(111,2,10))
