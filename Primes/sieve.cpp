@@ -11,7 +11,6 @@ typedef vector< bool > vbool;
 
 void show (vbool primes){
     int cap = primes.size();
-    cout << cap << endl;
     for(int i = 0; i< cap; i++){
         cout << i << " : " << primes[i] << endl;
     }
@@ -37,7 +36,7 @@ vbool sieve(ll n){
             }
         }
     }
-    cout << "tam " << sieve.size() << endl;
+    
     return sieve;
 
 }
