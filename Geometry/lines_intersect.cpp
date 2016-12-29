@@ -82,12 +82,12 @@ int main(){
         if(l1.segment && l2.segment){
             if( x >= min(l1.origin.first, l1.destiny.first) && 
                 x >= min(l2.origin.first, l2.destiny.first) &&  
-                x >= max(l2.origin.first, l2.destiny.first) &&  
-                x >= max(l1.origin.first, l1.destiny.first) &&  
+                x <= max(l2.origin.first, l2.destiny.first) &&  
+                x <= max(l1.origin.first, l1.destiny.first) &&  
                 y >= min(l1.origin.second, l1.destiny.second) && 
                 y >= min(l2.origin.second, l2.destiny.second) &&  
-                y >= max(l2.origin.second, l2.destiny.second) &&  
-                y >= max(l1.origin.second, l1.destiny.second)  ){
+                y <= max(l2.origin.second, l2.destiny.second) &&  
+                y <= max(l1.origin.second, l1.destiny.second)  ){
                 
                 cout << "x= " << x<< " y= " <<y <<endl;
 
