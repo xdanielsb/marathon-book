@@ -2,6 +2,11 @@
 
 using namespace std;
 
+/*
+ *  Pick's theorem is a useful method for determining the area of any polygon whose
+ *  vertices are points on a lattice, a regularly spaced array of points.
+ */
+
 /*References 
  *http://jwilson.coe.uga.edu/emat6680fa05/schultz/6690/pick/pick_main.htm
  */
