@@ -55,29 +55,17 @@ inline ld coeficient(line l1){
     ld c = l1.origin.second + l1.vx*l1.origin.first;
     return c;
 }
-int main(){
-    line l1, l2;
-    l1 = l2 = {}; //its valid only with -std=c++11
 
 
-    l1.origin = make_pair(0,0);
-    l1.destiny = make_pair(-2,2);
-    l1.vx  = slope(l1);
-    l1.vy = 1;
-    l1.segment =true;
-    l1.c = coeficient(l1);
 
-    l2.origin = make_pair(0,0);
-    l2.destiny = make_pair(-3,2);
-    l2.vx  = slope(l2);
-    l2.vy = 1;
-    l2.segment = true;
-    l2.c = coeficient(l2);
+/*
+ * Message 
+ */
 
-    
-    point inter = intersect(l1, l2);
-    ld x= inter.first;
+inline void mintersect(point inter, line l1, line l2){
+  ld x= inter.first; 
     ld y= inter.second;
+
     if( x != INF ){
         if(l1.segment && l2.segment){
             if( x >= min(l1.origin.first, l1.destiny.first) && 
@@ -100,6 +88,33 @@ int main(){
     }else{
         cout<<"Lines are parallel \n";
     }
+
+}
+
+int main(){
+    line l1, l2;
+    l1 = l2 = {}; //its valid only with -std=c++11
+
+
+    l1.origin = make_pair(0,0);
+    l1.destiny = make_pair(-2,2);
+    l1.vx  = slope(l1);
+    l1.vy = 1;
+    l1.segment =true;
+    l1.c = coeficient(l1);
+
+    l2.origin = make_pair(0,0);
+    l2.destiny = make_pair(-3,2);
+    l2.vx  = slope(l2);
+    l2.vy = 1;
+    l2.segment = true;
+    l2.c = coeficient(l2);
+
+    
+    point inter = intersect(l1, l2);
+   
+    mintersect(inter, l1, l2);
+    
 
 }
     
