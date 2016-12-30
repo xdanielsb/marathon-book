@@ -96,7 +96,7 @@ bool segments_intersect(vert v0, vert v1){
         // Collision detected
         i.x = p0.x + (t * AB.x);
         i.y = p0.y + (t * AB.y);
-        cout << " x = " << i.x << " y= "<< i.y << endl;
+    //    cout << " x = " << i.x << " y= "<< i.y << endl;
         return true;
     }
 
@@ -139,16 +139,16 @@ inline void test_point(verts v, point pun){
 int main(){
 
     /*The vertex of the polygon*/
-    verts v(4);
-    v[0] = {0,2};
-    v[1] = {3,5};
-    v[2] = {4,3};
-    v[3] = {3,0};
+    verts v(3);
+    v[0] = {0,0};
+    v[1] = {10,0};
+    v[2] = {0,10};
+    
 
     /* Point to check the program */
     
-    point p1 = {3,3};
-    point p2 = {2,45};
+    point p1 = {4,5};
+    point p2 = {5,5};
 
     test_point( v, p1);
     test_point( v, p2);
