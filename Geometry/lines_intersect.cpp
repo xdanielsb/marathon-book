@@ -9,6 +9,8 @@ typedef long double ld;
 typedef pair < ld, ld> point;
 const ld INF = 9000000000000000000;
 
+
+
 typedef struct line{
     // vy(y) + vx (x) = c; vy = 1
     ld vy;//value y

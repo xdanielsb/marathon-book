@@ -21,7 +21,6 @@ typedef struct point {
 typedef vector < point > vp;
 
 
-const ld INF = 9e15;
 /*
  * i ---> is the intersection
  */
