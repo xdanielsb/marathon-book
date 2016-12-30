@@ -62,7 +62,7 @@ inline ld coeficient(line l1){
  * Message 
  */
 
-inline void mintersect(point inter, line l1, line l2){
+inline bool mintersect(point inter, line l1, line l2){
   ld x= inter.first; 
     ld y= inter.second;
 
@@ -78,18 +78,22 @@ inline void mintersect(point inter, line l1, line l2){
                 y <= max(l1.origin.second, l1.destiny.second)  ){
                 
                 cout << "x= " << x<< " y= " <<y <<endl;
-
+                return true;
             }else{
                 cout << "The lines  does not collide";
+                return false;
             }
         }else{
             cout << "x= " << x<< " y= " <<y <<endl;
+            return true;
         }
     }else{
         cout<<"Lines are parallel \n";
+        return false;
     }
 
 }
+
 
 int main(){
     line l1, l2;
@@ -117,4 +121,4 @@ int main(){
     
 
 }
-    
+
