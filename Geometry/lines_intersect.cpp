@@ -57,11 +57,10 @@ inline ld coeficient(line l1){
 }
 
 
-
 /*
- * Message 
+ * Based on the intersection and the lines check if 
+ * the intersection is valid, checking the boundaries
  */
-
 inline bool mintersect(point inter, line l1, line l2){
   ld x= inter.first; 
     ld y= inter.second;
