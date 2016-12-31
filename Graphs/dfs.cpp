@@ -16,7 +16,7 @@ typedef vector < node >  list_nodes;
 
 
 
-inline void dfs(node start){
+ void dfs(node start){
     stack<node> s;
     s.push(start);
     while(s.empty() == false){
@@ -46,7 +46,7 @@ int main(){
     c.val = "c";
     d.val = "d";
 
-    list_nodes la(2), lc(1);
+    list_nodes la(2), lc(1), lb(1), ld(1);
     lc[0] = d;
     la[0] = b;
     la[1] = c;
@@ -54,6 +54,8 @@ int main(){
 
     c.neighbors = lc;
     a.neighbors = la;
+    d.neighbors = ld;
+    b.neighbors = lb;
     
 
     dfs(a);
