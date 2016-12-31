@@ -30,9 +30,17 @@ typedef vector < node >  list_nodes;
 
         list_nodes n = top.neighbors;
         cout << "\tNum of neighbors " << n.size() << endl;
+        
         for (node a: n){
+            cout <<"\t\t "<<a.val<<endl;
             s.push(a);
         }
+        /*for (int i=0; i< n.size(); i++){
+            cout <<"\t\t "<<n[i].val<<endl;
+            s.push(n[i]);
+        }*/
+
+
 
     }
 }
@@ -46,19 +54,19 @@ int main(){
     c.val = "c";
     d.val = "d";
 
-    list_nodes la(2), lc(1), lb(1), ld(1);
+    list_nodes la(2), lc(1);
+
     lc[0] = d;
+    c.neighbors = lc;
+
     la[0] = b;
     la[1] = c;
-    
-
-    c.neighbors = lc;
     a.neighbors = la;
-    d.neighbors = ld;
-    b.neighbors = lb;
-    
 
+    
+    cout<< " dfs -> a" <<endl<<endl;
     dfs(a);
+    
     return 0; 
 
 }

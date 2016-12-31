@@ -12,8 +12,10 @@ def dfs(start):
         top = stack.pop()
 
         if (top.visited == False):
+
             top.visited = True
             print(top.name)
+            #In this part in the termination condition
 
         n = top.neighbors
         for i in n:
