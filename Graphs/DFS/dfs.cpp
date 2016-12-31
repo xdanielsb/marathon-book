@@ -16,7 +16,7 @@ typedef vector < node >  list_nodes;
 
 
 
- void dfs(node start){
+void dfs(node start){
     stack<node> s;
     s.push(start);
     while(s.empty() == false){
