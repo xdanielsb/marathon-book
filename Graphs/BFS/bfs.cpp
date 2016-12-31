@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <stack>
-#include <string>
+#include <queue>
 
 using namespace std;
+
+
 
 typedef struct node {
     string val;
@@ -16,34 +17,32 @@ typedef vector < node >  list_nodes;
 
 
 
-void dfs(node start){
-    stack<node> s;
+inline  void bfs(node start){   
+
+    queue<node> s;
     s.push(start);
-    while(s.empty() == false){
-        node top = s.top();
-        s.pop(); 
-
-        if (top.visited == false){
-            top.visited  = true;
-            cout << "Node " << top.val << " visited" << endl;
-        }
-
-        list_nodes n = top.neighbors;
-     //  cout << "\tNum of neighbors " << n.size() << endl;
+    start.visited = true;
+    while (s.empty() == false){
+        node top = s.front();
+        s.pop();
+        cout << "Node " << top.val << " visited" << endl;
         
+        list_nodes n = top.neighbors;
+        //Check for the termination condition
         for (node a: n){
-         //   cout <<"\t\t "<<a.val<<endl;
-            s.push(a);
+            if (a.visited == false){
+                s.push(a);
+                a.visited = true;
+            }
         }
-
-
+        
     }
+        
 }
 
-
 int main(){
-
-     /*          a
+    
+    /*          a
      *        /    \
      *       b      c
      *       |    /   \
@@ -51,7 +50,6 @@ int main(){
      *
      */
 
- 
     node a,b,c,d,e,f;
     a.val = "a";
     b.val = "b";
@@ -77,9 +75,8 @@ int main(){
     
 
 
-    cout<< " dfs -> a" <<endl<<endl;
-    dfs(a);
+    cout<< " bfs -> a" <<endl<<endl;
+    bfs(a);
     
-    return 0; 
-
+    return 0;
 }
