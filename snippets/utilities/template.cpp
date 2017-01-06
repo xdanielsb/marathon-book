@@ -27,4 +27,4 @@ int main () {
    cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
 
    return 0;
-}
+};
