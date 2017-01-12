@@ -1,0 +1,15 @@
+Insertion Sort
+Suppose an array A 
+Note : in this pseudocode the minimun size of the array is 1 for that reason is  i>0 
+
+for j = 2 to  A.length              //Start in the second element
+    key = A[j]                      //Save a pivot in this case the element to sort
+    i = j - 1                       //Create an index for comparing, but this index is a before one of the pivot
+    while i > 0 and A[i] > A[j]     //Control Structure for comparing with the previous elements until the index is greater than 0 and the previous elements be greater                                    
+        A[i+1] = A[i]               //if the condition is satisfied change positions 
+        i = i - 1                   //Decrease the index
+    A[i+1] = key                    //Put in the correct position the pivot
+
+It's important to make the remark that, implicitly this algorithm create two subarrays that consist on:
+    first subarray: array [1 ... j-1] constitutes the sorted array
+    second subarray: array [j ... length_array] correspond to the pile of number without sort
