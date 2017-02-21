@@ -4,7 +4,7 @@
  - Each of the n items is  in exactly one set.
  - Supports two operations efficiently:
     - find(x)
-    - union(x)
+    - union(x, y)
 
 **Resources:** [Hacker Earth](https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/), [algo.is](https://algo.is/aflv16/aflv_03_data_structures.pdf)
 
@@ -29,8 +29,8 @@ int find(int *arr, int i) {
 
 //Weighted union, for a better running time.
 void union(int *arr, int *size, int a, int b) {
-    int root_a = find(a);
-    int root_b = find(b);
+    int root_a = find(arr, a);
+    int root_b = find(arr, b);
 
     if(root_a == root_b)
         return;
