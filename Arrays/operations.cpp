@@ -12,6 +12,7 @@ inline void show(vi &data, int &size){
             printf("%d \t", data[i]);
         printf("\n");
 }
+
 inline void permutation(vi data, int size){
     sort(data.begin(), data.end());
     do {
