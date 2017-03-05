@@ -13,12 +13,13 @@ public class DFS {
             if(top.visited == false){
                 top.visited = true;
                 System.out.println("Visit " + top.name);
+                ArrayList<node> n;
+                n = top.neighbors;
+                for (node a: n){
+                    s.push(a);
+                }
             }
-            ArrayList<node> n;
-            n = top.neighbors;
-            for (node a: n){
-                s.push(a);
-            }
+            
 
         }
     }

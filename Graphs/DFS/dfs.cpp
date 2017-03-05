@@ -27,13 +27,11 @@ void dfs(node start){
             top.visited  = true;
             cout << "Node " << top.val << " visited" << endl;
             //Check for the termination condition
+            list_nodes n = top.neighbors;      
+            for (node a: n){
+                s.push(a);
+            }
         }
-
-        list_nodes n = top.neighbors;      
-        for (node a: n){
-            s.push(a);
-        }
-
 
     }
 }

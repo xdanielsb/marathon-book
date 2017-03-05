@@ -16,10 +16,9 @@ def dfs(start):
             top.visited = True
             print(top.name)
             #In this part in the termination condition
-
-        n = top.neighbors
-        for i in n:
-            stack.append(i)
+            n = top.neighbors
+            for i in n:
+                stack.append(i)
 
 
 
