@@ -5,14 +5,14 @@ using namespace std;
 typedef long long ll;
 
 
-/*
- * First method 
+/* Largest Sum Contiguous Subarray
+ * Kadane Algorithm
  * Complexity O(n)
  */
 
 inline ll get_max_sum(ll * data, int size){
-    ll maxn =0, aux = 0;
-    forn(i, 0, size){
+    ll maxn =data[0], aux = data[0];
+    forn(i, 1, size){
         aux = max(data[i], data[i]+aux);
         maxn = max(maxn, aux);
     }
