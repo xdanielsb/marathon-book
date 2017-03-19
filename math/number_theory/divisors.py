@@ -1,9 +1,3 @@
-
-### Get all the divisors of a number.
-* Time Complexity : O(sqrt(n))
-* [Source](http://www.geeksforgeeks.org/find-divisors-natural-number-set-1/ "Find Divisors")
-
-```python   
 def listDivisors(n):
     divisors = []
     lim = int(math.sqrt(n))
@@ -16,4 +10,3 @@ def listDivisors(n):
                 divisors.append(n // i)
 
     return divisors
-```
