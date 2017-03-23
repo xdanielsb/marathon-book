@@ -12,7 +12,7 @@ int find(int *arr, int i) {
     if(arr[i] == i) {
         return i;
     } else {
-        arr[i] = find(arr, i);
+        arr[i] = find(arr, arr[i]);
         return arr[i];
     }
 }
