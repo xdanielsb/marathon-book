@@ -1,8 +1,10 @@
+import math
+
 def listDivisors(n):
     divisors = []
-    lim = int(math.sqrt(n))
+    lim = math.ceil(math.sqrt(n))
 
-    for i in range(1, lim + 1):
+    for i in range(1, lim):
         if n % i == 0:
             divisors.append(i)
 
