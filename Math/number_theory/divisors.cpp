@@ -7,9 +7,9 @@ typedef vector<int> vi;
 
 vi divisores(int n) {
     vi d;
-    int r = sqrt(n);
+    int r = ceil(sqrt(n));
 
-    for(int i = 1; i <= r; i++) {
+    for(int i = 1; i < r; i++) {
         if(n % i == 0) {
             d.push_back(i);
 
