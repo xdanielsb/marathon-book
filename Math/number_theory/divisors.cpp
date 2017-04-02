@@ -2,9 +2,10 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <set>
 using namespace std;
 
-typedef vector<int> vi;
+typedef set<int> vi;
 
 vi divisores(int n) {
     vi d;
@@ -12,10 +13,8 @@ vi divisores(int n) {
 
     for(int i = 1; i <= r; i++) {
         if(n % i == 0) {
-            d.push_back(i);
-
-            if((i * i) != n)
-                d.push_back(n / i);
+            d.insert(i);
+            d.insert(n / i);
         }
     }
     return d;
@@ -23,8 +22,7 @@ vi divisores(int n) {
 
 int main() {
     vi divi = divisores(10);
-    sort(divi.begin(), divi.end());
-    for(int i=0; i<divi.size(); i++)
-        printf("%d ", divi[i]);
+    for (set<int>::iterator it=divi.begin(); it!=divi.end(); ++it)
+        printf("%d ", *it);
     printf("\n");
 }
