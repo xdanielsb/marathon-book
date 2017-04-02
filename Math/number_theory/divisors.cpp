@@ -1,6 +1,3 @@
-#include <cstdio>
-#include <vector>
-#include <cmath>
 #include <algorithm>
 #include <set>
 using namespace std;
