@@ -3,7 +3,9 @@
 using namespace std;
 
 typedef set<int> vi;
-
+/*
+ * Get the divisors of a number
+ */
 vi divisores(int n) {
     vi d;
     int r = sqrt(n);

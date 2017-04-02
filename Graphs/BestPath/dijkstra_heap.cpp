@@ -1,10 +1,11 @@
-#include <iostream> 
+#include <iostream>
 #include <queue>
 #include <vector>
 #define forn(i,a) for (int i=0; i<a ; i++)
+#define INF 20000000
+
 using namespace std;
 
-#define INF 20000000
 
 struct edge{
 	int to, weight;
@@ -35,14 +36,14 @@ inline void show(vve &adj, int nodes){
 
 }
 
-/*MAGIC OF DIJKSTRA USING PRIORITY QUEUES AND BFS
- * 
+/*
+ * MAGIC OF DIJKSTRA USING PRIORITY QUEUES AND BFS
  */
 inline void dijkstra(vve &adj, int src, int num_nodes){
-    
+
     vi dist = vi(num_nodes+1,INF);
 	pq  q;
-    
+
     //by default
     q.push(edge(src,0));
     dist[src] = 0;
@@ -65,28 +66,23 @@ inline void dijkstra(vve &adj, int src, int num_nodes){
     cout << "Distancias desde el origen " << src << endl;
     forn(i, num_nodes){
         cout <<"Costo al nodo: " << i << " ="<< dist[i] << endl;
-        
+
     }
 
 }
 
 int main(){
-    
 
     int nodes, vertex, from, to, weight;
-    //Read the number of nodes and vertex
     cin >> nodes >> vertex;
-
     vve adj(nodes);
 
     //Read the connections
     forn(i, vertex){
         cin >> from >> to >> weight;
         adj[from].push_back(edge(to, weight));
-    }   
+    }
 
-
-    
    // show(adj, nodes);
     int src = 1;
     dijkstra(adj, src, nodes);

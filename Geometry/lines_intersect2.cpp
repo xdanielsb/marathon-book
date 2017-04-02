@@ -5,12 +5,10 @@
 
 using namespace std;
 
-
-/* BETTER VERSION
+/*
+ *BETTER VERSION
  * http://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
- *
  */
-
 
 typedef long double ld;
 typedef struct point {
@@ -25,10 +23,10 @@ typedef vector < point > vp;
  * i ---> is the intersection
  */
 bool get_line_intersection(point p0, point p1, point p2, point p3, point i){
-    
+
     ld s1_x, s1_y, s2_x, s2_y;
     point AB, DC;
-    
+
     AB.x = p1.x - p0.x; AB.y = p1.y -p0.y;
     DC.x = p3.x - p2.x; DC.y = p3.y - p2.y;
 
@@ -57,12 +55,12 @@ int main(){
     //line 1
     p[0] = {0,1};
     p[1] = {2,3};
-    
+
     //line 2
     p[2] = {3,0};
     p[3] = {0,3};
-    
-    
+
+
     bool is = get_line_intersection(p[0], p[1], p[2], p[3], inter);
     printf("%s\n", is ? "Las lineas chocan": " There is not collision");
 

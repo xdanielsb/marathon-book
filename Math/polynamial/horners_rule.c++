@@ -1,14 +1,14 @@
 #include <iostream>
-
+using namespace std;
 
 /*
  *It's a pretty good way to evaluate polynomials
  */
 
-/* Example 
+/* Example
  * given the polynomial f(x) = 2x^3 - 6 x^2 - 2x -1
- *  we want to know f(8) 
- *       the traditional form in evaluate it
+ * we want to know f(8)
+ *    -the traditional form in evaluate it
  *  by the horners method is by syntetic division
  *
  *  8  | X^3 X^2  X^1 X^0
@@ -31,16 +31,11 @@ int Horner( int a[], int n, int x ){
     return result;
 }
 
-using namespace std;
-
 int main(){
     int grade = 3;
-    
     int a[ grade +1 ] = {-1,-2,-6,2};
     int x = 8;
 
     cout << Horner (a, grade, x);
-
-
     return 0;
 }

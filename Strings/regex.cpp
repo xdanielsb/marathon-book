@@ -8,7 +8,7 @@ using namespace std;
 int main(){
     string  s = "123daniel , jajaja, lol, 234234534, I am from Earth";
     regex tel("\\d{8},\\sI");
-    
+
     auto words_begin = sregex_iterator(s.begin(), s.end(), tel);
     auto words_end = sregex_iterator();
 
@@ -26,6 +26,4 @@ int main(){
     }
  
     return 0;
-
 }
-

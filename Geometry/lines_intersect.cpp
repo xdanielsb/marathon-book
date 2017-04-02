@@ -2,14 +2,11 @@
 #include <algorithm>
 #include <limits>
 
-
 using namespace std;
 
 typedef long double ld;
 typedef pair < ld, ld> point;
 const ld INF = 9000000000000000000;
-
-
 
 typedef struct line{
     // vy(y) + vx (x) = c; vy = 1
@@ -33,18 +30,16 @@ inline point intersect( line l1, line l2){
         //Apply crammer for compute the intersection
         ld x  = ((l1.c * l2.vy) - (l2.c * l1.vy )) / dete;
         ld y =  ((l1.vx * l2.c) - (l2.vx * l1.c)) / dete;
-        return make_pair(x,y);   
+        return make_pair(x,y);
     }
     return make_pair(INF, INF);
-    
+
 }
 
 /*
  *Return the negative slope
  */
-
 inline ld slope(line l1){
-
     ld m = (l1.destiny.second - l1.origin.second ) / ( l1.destiny.first - l1.origin.first);
     return -1* m;
 }
@@ -60,24 +55,24 @@ inline ld coeficient(line l1){
 
 
 /*
- * Based on the intersection and the lines check if 
+ * Based on the intersection and the lines check if
  * the intersection is valid, checking the boundaries
  */
 inline bool mintersect(point inter, line l1, line l2){
-  ld x= inter.first; 
+  ld x= inter.first;
     ld y= inter.second;
 
     if( x != INF ){
         if(l1.segment && l2.segment){
-            if( x >= min(l1.origin.first, l1.destiny.first) && 
-                x >= min(l2.origin.first, l2.destiny.first) &&  
-                x <= max(l2.origin.first, l2.destiny.first) &&  
-                x <= max(l1.origin.first, l1.destiny.first) &&  
-                y >= min(l1.origin.second, l1.destiny.second) && 
-                y >= min(l2.origin.second, l2.destiny.second) &&  
-                y <= max(l2.origin.second, l2.destiny.second) &&  
+            if( x >= min(l1.origin.first, l1.destiny.first) &&
+                x >= min(l2.origin.first, l2.destiny.first) &&
+                x <= max(l2.origin.first, l2.destiny.first) &&
+                x <= max(l1.origin.first, l1.destiny.first) &&
+                y >= min(l1.origin.second, l1.destiny.second) &&
+                y >= min(l2.origin.second, l2.destiny.second) &&
+                y <= max(l2.origin.second, l2.destiny.second) &&
                 y <= max(l1.origin.second, l1.destiny.second)  ){
-                
+
                 cout << "x= " << x<< " y= " <<y <<endl;
                 return true;
             }else{
@@ -115,11 +110,9 @@ int main(){
     l2.segment = true;
     l2.c = coeficient(l2);
 
-    
     point inter = intersect(l1, l2);
-   
+
     mintersect(inter, l1, l2);
-    
+
 
 }
-

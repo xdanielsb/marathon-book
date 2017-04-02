@@ -3,33 +3,29 @@
 #include<math.h>
 #include<algorithm>
 
+#define magnitude(x) (sqrt(x.first*x.first + x.second*x.second))
 
 using namespace std;
 
 typedef long double ld;
-
 typedef pair< ld, ld>  point;
 
-
-#define magnitude(x) (sqrt(x.first*x.first + x.second*x.second))
-
-
+/* Difference between two points */
 inline  point r(point o, point d){
     return make_pair(d.first-o.first, d.second - o.second) ;
 }
 
 /*Cross product*/
 inline ld cross_product(point o, point d){
-    ld cross  = (o.first * d.second)  - ( o.second * d.first); 
+    ld cross  = (o.first * d.second)  - ( o.second * d.first);
     return cross>0? cross: cross *-1;
 }
 
 /*
- *First find cross product 
+ *First find cross product
  */
 ld distance(point A, point B, point C){
-    //First create vector AB   and AC 
-    
+    //First create vector AB   and AC
     point AB = r(A,B);
     point AC = r(A,C);
 
@@ -38,7 +34,6 @@ ld distance(point A, point B, point C){
     ld distance2 = cross / magnitude(AC);
 
     return min(distance1, distance2);
-
 }
 
 /*
@@ -46,6 +41,7 @@ ld distance(point A, point B, point C){
  */
 
 int main(){
+    //Fast input and output
     ios::sync_with_stdio(false);
 	cin.tie(NULL);
 
@@ -56,7 +52,5 @@ int main(){
     C = make_pair(5,0);
 
     cout << distance(A,B,C);
-
     return 0;
-
 }

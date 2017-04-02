@@ -3,7 +3,9 @@
 
 using namespace std;
 typedef long long ll;
-
+/*
+ * Verify if a number is prime
+ */
 bool is_prime(ll n){
     if (n < 2) return false;
     if (n < 4) return true;

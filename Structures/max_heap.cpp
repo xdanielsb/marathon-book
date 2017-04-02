@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
 
-/*REFERENCES 
- *http://quiz.geeksforgeeks.org/implement-min-heap-using-stl/
+
+/*REFERENCES
+ * http://quiz.geeksforgeeks.org/implement-min-heap-using-stl/
  */
 
 int main (){
@@ -14,13 +14,13 @@ int main (){
     pq.push(10);
     pq.push(30);
     pq.push(20);
- 
+
     // One by one extract items from max heap
     while (pq.empty() == false)
     {
         cout << pq.top() << " ";
         pq.pop();
     }
- 
+
     return 0;
 }

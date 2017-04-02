@@ -2,7 +2,9 @@
 using namespace std;
 
 typedef long long ll;
-
+/*
+ * Get the greatest common divisor of a number
+ */
 int gcd(ll a, ll b){
     if(b == 0) return a;
     return gcd(b, a % b);

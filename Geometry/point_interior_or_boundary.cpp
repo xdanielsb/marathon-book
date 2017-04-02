@@ -2,12 +2,14 @@
 #include <algorithm>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
-#include <vector> 
+#include <vector>
 #include <math.h>
+
+#define magnitude(a) (sqrt(a.x*a.x + a.y*a.y))
 
 using namespace std;
 /*
- * This script helps to find if a point is inside, outside 
+ * This script helps to find if a point is inside, outside
  * or in the boundaries of a poligon
  */
 
@@ -19,13 +21,12 @@ typedef struct point {
 }point;
 
 typedef struct vert {
-    point o; //origin 
+    point o; //origin
     point d; //destiny
-} vert;  
+} vert;
 
 typedef vector < point > verts;
 
-#define magnitude(a) (sqrt(a.x*a.x + a.y*a.y))
 
 
 
@@ -37,7 +38,7 @@ typedef vector < point > verts;
 
 /*Cross product*/
 inline ld cross_product(point o, point d){
-    ld cross  = (o.x * d.y)  - ( o.y * d.x); 
+    ld cross  = (o.x * d.y)  - ( o.y * d.x);
     return cross>0? cross: cross *-1;
 }
 
@@ -53,8 +54,8 @@ inline  point r(point o, point d){
 
 
 ld dist_to_point(point A, point B, point C){
-    //First create vector AB   and AC 
-    
+    //First create vector AB   and AC
+
     point AB = r(A,B);
     point AC = r(A,C);
 
@@ -74,16 +75,16 @@ ld dist_to_point(point A, point B, point C){
  */
 
 bool segments_intersect(vert v0, vert v1){
-    
-    point p0 = v0.o; 
-    point p1 = v0.d; 
+
+    point p0 = v0.o;
+    point p1 = v0.d;
     point p2 = v1.o;
     point p3 = v1.d;
     point i;
 
     ld s1_x, s1_y, s2_x, s2_y;
     point AB, DC;
-    
+
     AB.x = p1.x - p0.x; AB.y = p1.y -p0.y;
     DC.x = p3.x - p2.x; DC.y = p3.y - p2.y;
 
@@ -132,7 +133,7 @@ inline void test_point(verts v, point pun){
         cout << "The point is an exterior point " << endl;
     }else {
         cout << "The point is an interior point " << endl;
-    }   
+    }
 
 }
 
@@ -143,10 +144,10 @@ int main(){
     v[0] = {0,0};
     v[1] = {10,0};
     v[2] = {0,10};
-    
+
 
     /* Point to check the program */
-    
+
     point p1 = {4,5};
     point p2 = {5,5};
 

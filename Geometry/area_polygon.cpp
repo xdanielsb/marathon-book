@@ -14,17 +14,17 @@ inline  point r(point o, point d){
 
 /*Cross product*/
 inline ld cross_product(point o, point d){
-    ld cross  = (o.first * d.second)  - ( o.second * d.first); 
+    ld cross  = (o.first * d.second)  - ( o.second * d.first);
     return cross > 0 ? cross :  cross * -1;
 }
 
 /*
- * find triangles based on  a reference and find the cross product for find the 
+ * find triangles based on  a reference and find the cross product for find the
  * areas.
  */
 
 inline ld area(polygon p){
-    
+
     int num_points = p.size();
     ld area = 0;
     for (int i = 1; i < num_points -1 ; i++){
@@ -39,13 +39,14 @@ inline ld area(polygon p){
 
 
 int main(){
+    //Fast input and output
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    point A, B,C,D;
+    point A, B, C, D;
     A = make_pair(1,0);
     B = make_pair(2,1);
-    C = make_pair(1,2); 
+    C = make_pair(1,2);
     D = make_pair(0,1);
 
     polygon p(4);
@@ -56,7 +57,5 @@ int main(){
 
     cout << area(p);
 
-
     return 0;
-
 }

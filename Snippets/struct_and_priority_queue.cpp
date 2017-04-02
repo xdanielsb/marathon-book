@@ -1,9 +1,9 @@
 #include <iostream>
 #include <queue>
 
-
 using namespace std;
 
+typedef priority_queue<edge> pq;
 
 struct edge{
     int to, weight;
@@ -17,7 +17,6 @@ struct edge{
     }
 };
 
-typedef priority_queue<edge> pq;
 
 int main(){
     pq edges;
@@ -34,4 +33,3 @@ int main(){
         cout << a.to << endl;
     }
 }
-

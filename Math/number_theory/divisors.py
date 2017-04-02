@@ -1,5 +1,7 @@
 import math
-
+"""
+    Get the divisors of a number
+"""
 def listDivisors(n):
     divisors = set() #Creating a set # Avoid repeated elements
     lim = int(math.sqrt(n))
