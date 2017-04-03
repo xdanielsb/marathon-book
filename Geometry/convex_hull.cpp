@@ -4,9 +4,6 @@
 
 using namespace std;
 /* CONVEX HULL: Minimun Convex Polygon
- * References
- * https://en.wikipedia.org/wiki/Convex_hull
- * 
  * Convex hull is the smallest set of points that containss tho set X.
  */
 
@@ -18,7 +15,7 @@ using namespace std;
  *    if there is a tie, pick the highest point
  * 2- from the most left we are going to use cross product for finding
  *    the further clockwise from the current possition
- * 3- If there is no colinear points the code is straighforward. 
+ * 3- If there is no colinear points the code is straighforward.
  */
 
 typedef long double ld;
@@ -42,7 +39,7 @@ inline int left_most(points p){
         int ref = 0;
         for( int i = 1; i < cant; i++){
             if (p[i].x < p[ref].x ){
-                ref = i;   
+                ref = i;
             }
         }
         return ref;
@@ -58,7 +55,7 @@ inline point cv(point a, point b){
 
 /*
  * lm -> stands out the left most point
- * more_points -> if is true use as many points as possible 
+ * more_points -> if is true use as many points as possible
  *                for the convex hull otherwise use as few
  *                as possible
  */
@@ -70,30 +67,30 @@ inline void convex_hull(points p, int lm, bool more_points){
      * Just to clarify
      */
     int start = lm;
-    
 
-    do 
+
+    do
     {
         int n = -1;
         ld dist = more_points?INF:0;
-        
-        
+
+
         cout << "Left most is " << lm << ": x= " << p[lm].x << " y= "<< p[lm].y << endl;
-        
+
         for (int i = 0; i < cant ; i ++){
-            
+
             //Do not go back to the same point
             if (i == lm) continue;
 
-            //Do not reuse 
+            //Do not reuse
             if(used[i])continue;
 
 
-            //Set N 
+            //Set N
             if ( n==-1) {
                 n =i;
-                
-                continue; //if I do not put this continue, the 
+
+                continue; //if I do not put this continue, the
                           //program will do a cross product
                           //with the same line
             }
@@ -115,9 +112,9 @@ inline void convex_hull(points p, int lm, bool more_points){
                     n = i;
                 }
             }
-            
+
         }
-        
+
         lm = n; //change the most left;
         used[lm] = true;
     }while(start != lm);
@@ -129,7 +126,7 @@ int main(){
     cin.tie(NULL);
 
     points p(6);
-    
+
     p[0] = {0,2};
     p[1] = {3,5};
     p[2] = {4,3};
@@ -137,7 +134,7 @@ int main(){
     p[4] = {3,3};
     p[5] = {4,6};
     convex_hull(p, left_most(p), false);
-    
+
     return 0;
 
 }

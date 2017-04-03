@@ -4,20 +4,15 @@
 
 using namespace std;
 
-
-
 typedef struct node {
     string val;
     bool visited = false;
     vector < node >  neighbors ;
-} node;
-
+}
 
 typedef vector < node >  list_nodes;
 
-
-
-inline  void bfs(node start){   
+void bfs(node start){
 
     queue<node> s;
     s.push(start);
@@ -26,7 +21,7 @@ inline  void bfs(node start){
         node top = s.front();
         s.pop();
         cout << "Node " << top.val << " visited" << endl;
-        
+
         list_nodes n = top.neighbors;
         //Check for the termination condition
         for (node a: n){
@@ -35,13 +30,13 @@ inline  void bfs(node start){
                 a.visited = true;
             }
         }
-        
+
     }
-        
+
 }
 
 int main(){
-    
+
     /*          a
      *        /    \
      *       b      c
@@ -60,7 +55,7 @@ int main(){
 
     list_nodes la(2), lc(2), lb(1);
 
-    
+
     lc[0] = e;
     lc[1] = f;
     c.neighbors = lc;
@@ -70,13 +65,13 @@ int main(){
 
 
     la[0] = b;
-    la[1] = c;    
+    la[1] = c;
     a.neighbors = la;
-    
+
 
 
     cout<< " bfs -> a" <<endl<<endl;
     bfs(a);
-    
+
     return 0;
 }

@@ -24,11 +24,10 @@ def tob(n, b):
     if n == 0: return ""
     return   tob(n // b, b) + chars[n % b]
 
-
-
-if __name__ == "__main__":
+def main():
     print ( tob(7,2))
     print ( tob(252,16))
     print ( tob(234,15))
     print ( to10(1000,2))
     print ( changeBase(111,2,10))
+main()

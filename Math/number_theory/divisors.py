@@ -3,7 +3,7 @@ import math
     Get the divisors of a number
 """
 def listDivisors(n):
-    divisors = set() #Creating a set # Avoid repeated elements
+    divisors = set()
     lim = int(math.sqrt(n))
 
     for i in range(1, lim + 1):

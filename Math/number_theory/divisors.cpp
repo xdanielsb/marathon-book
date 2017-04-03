@@ -2,11 +2,11 @@
 #include <set>
 using namespace std;
 
-typedef set<int> vi;
 /*
  * Get the divisors of a number
  */
-vi divisores(int n) {
+typedef set<int> si;
+si divisores(int n) {
     vi d;
     int r = sqrt(n);
 
@@ -20,7 +20,7 @@ vi divisores(int n) {
 }
 
 int main() {
-    vi divi = divisores(10);
+    si divi = divisores(10);
     for (set<int>::iterator it=divi.begin(); it!=divi.end(); ++it)
         printf("%d ", *it);
     printf("\n");

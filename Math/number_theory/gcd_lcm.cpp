@@ -1,13 +1,13 @@
 #include<cstdio>
 using namespace std;
 
-typedef long long ll;
-/*
- * Get the greatest common divisor of a number
- */
-int gcd(ll a, ll b){
+int gcd(int a, int b){
     if(b == 0) return a;
     return gcd(b, a % b);
+}
+
+int lcm(int n1, int n2){
+    return (n1 * n2) / gcd(n1,n2);
 }
 
 int main(){

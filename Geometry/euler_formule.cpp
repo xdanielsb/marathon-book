@@ -2,10 +2,6 @@
 
 using namespace std;
 
-/*REFERENCES
- * Euler's formula
- */
-
 typedef long long ll;
 
 b is_a_poligon(ll V, ll E, ll F){

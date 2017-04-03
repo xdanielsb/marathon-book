@@ -1,11 +1,10 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-#define forn(i,a) for (int i=0; i<a ; i++)
-#define INF 20000000
-
 using namespace std;
 
+#define forn(i,a) for (int i=0; i<a ; i++)
+#define INF 20000000
 
 struct edge{
 	int to, weight;
