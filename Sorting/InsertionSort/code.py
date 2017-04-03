@@ -13,15 +13,13 @@ def sort(array, length_array):
             array[index_aux+1] = array[index_aux]
             index_aux = index_aux -1
         array[index_aux+1]=key
-        
 
-if __name__ == "__main__":
+
+def main():
     array = [50, 885, 1 , -8 , 54 , 2, 54, 0]
     print("Original array")
     show(array)
     print("Sorted array")
     sort(array, len(array))
     print(array)
-    
-
-
+main()

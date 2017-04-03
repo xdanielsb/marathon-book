@@ -1,27 +1,15 @@
 #include<iostream>
 using namespace std;
 
-int show(int array[], int length_array); 
+int show(int array[], int length_array);
 int sort(int array[], int length_array);
 
-int main(){
-    int length_array = 7;
-    int array [] = {58, -5, 10, 8, 78 ,234, 43};
-    
-    cout << "Original Array" << endl;
-    show(array, length_array);
-
-    sort(array, length_array);
-    
-    cout << "Sorted Array" << endl;
-    show(array, length_array);
-}
 
 int show(int array[], int length_array){
     for (int index = 0 ; index < length_array; index++)
         cout << array[index] << " ";
     cout << endl;
-    
+
 }
 
 int sort(int array[], int length_array){
@@ -42,4 +30,15 @@ int sort(int array[], int length_array){
 
 }
 
+int main(){
+    int length_array = 7;
+    int array [] = {58, -5, 10, 8, 78 ,234, 43};
 
+    cout << "Original Array" << endl;
+    show(array, length_array);
+
+    sort(array, length_array);
+
+    cout << "Sorted Array" << endl;
+    show(array, length_array);
+}
