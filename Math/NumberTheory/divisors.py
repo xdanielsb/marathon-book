@@ -1,7 +1,5 @@
 import math
-"""
-    Get the divisors of a number
-"""
+"""Get the divisors of a number"""
 def listDivisors(n):
     divisors = set()
     lim = int(math.sqrt(n))

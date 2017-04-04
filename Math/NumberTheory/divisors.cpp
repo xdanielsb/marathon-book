@@ -2,10 +2,8 @@
 #include <set>
 using namespace std;
 
-/*
- * Get the divisors of a number
- */
 typedef set<int> si;
+/* Get the divisors of a number */
 si divisores(int n) {
     vi d;
     int r = sqrt(n);
