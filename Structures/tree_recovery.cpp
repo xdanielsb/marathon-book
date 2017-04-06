@@ -13,7 +13,7 @@ struct node {
         left = NULL;
         right = NULL;
     }
-}
+};
 
 int search(string word, int b, int e, char c) {
     for(int i=b; i<=e; i++) {
