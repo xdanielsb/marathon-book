@@ -47,8 +47,6 @@ int main() {
     while(cin >> pre >> in) {
         tree = build(in, pre, 0, pre.size() - 1);
         preIndex = 0;
-        postorder(tree);
-        cout << '\n';
     }
 
     return 0;
