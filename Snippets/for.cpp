@@ -10,9 +10,8 @@ int main(){
         cout << "with out variable" << endl;
     }
 
-    int i=0;
     forn(i,10){
-        cout << "with variable" << endl;
+        cout << "with variable: " << i << endl;
     }
     return 0;
 
