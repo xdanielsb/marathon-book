@@ -1,11 +1,13 @@
 #include <algorithm>
+#include <math.h>
 #include <set>
+#include <stdio.h>
 using namespace std;
 
 typedef set<int> si;
 /* Get the divisors of a number */
 si divisores(int n) {
-    vi d;
+    si d;
     int r = sqrt(n);
 
     for(int i = 1; i <= r; i++) {
