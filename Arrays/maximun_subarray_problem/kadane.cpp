@@ -11,12 +11,12 @@ typedef long long ll;
  */
 
 inline ll get_max_sum(ll * data, int size){
-    ll maxn = data[0], aux = data[0];
+    ll max_so_far= data[0],  max_ending_here = data[0];
     forn(i, 1, size){
-        aux = max(data[i], data[i] + aux);
-        maxn = max(maxn, aux);
+        max_ending_here = max(data[i], data[i] + max_ending_here);
+        max_so_far = max(max_so_far, max_ending_here);
     }
-    return maxn;
+    return max_so_far;
 }
 
 int main(){
@@ -31,8 +31,8 @@ int main(){
         scanf("%lld", &data[i]);
 
     ll res = get_max_sum(data, size);
-    printf("The max that can be done with \
-            Contiguous elements isin the array: %lld \n", res);
+    printf("The max sum that can be done with \n \
+            Contiguous elements is: %lld \n", res);
 
     return 0;
 }
