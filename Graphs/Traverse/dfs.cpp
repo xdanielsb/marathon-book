@@ -1,81 +1,38 @@
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <string>
+#include <bits/stdc++.h>
+#define NUM_NODES 8
 
 using namespace std;
 
-typedef struct node {
-    string val;
-    bool visited = false;
-    vector < node >  neighbors ;
-} node;
+vector < int > g[NUM_NODES];
+int vis[NUM_NODES];
+enum {WHITE, GRAY, BLACK};
 
-
-typedef vector < node >  list_nodes;
-
-
-
-void dfs(node start){
-    stack<node> s;
-    s.push(start);
-    while(s.empty() == false){
-        node top = s.top();
-        s.pop(); 
-
-        if (top.visited == false){
-            top.visited  = true;
-            cout << "Node " << top.val << " visited" << endl;
-            //Check for the termination condition
-            list_nodes n = top.neighbors;      
-            for (node a: n){
-                s.push(a);
-            }
-        }
-
+/*
+ * o -> origin
+ */
+void dfs(int o){
+    vis [o] = GRAY; //semi-visited
+    for (int i = 0; i < g[o].size(); i++){
+        int v = g[o][i];
+        if (vis[v] == WHITE) dfs(v); // visit neighbors
     }
+    cout << o << endl;
+    vis[o] = BLACK; //visited;
 }
 
 
 int main(){
 
-     /*          a
-     *        /    \
-     *       b      c
-     *       |    /   \
-     *       d   e     f
-     *
-     */
-
- 
-    node a,b,c,d,e,f;
-    a.val = "a";
-    b.val = "b";
-    c.val = "c";
-    d.val = "d";
-    e.val = "e";
-    f.val = "f";
-
-    list_nodes la(2), lc(2), lb(1);
-
+    g[0].push_back(1);
+    g[0].push_back(2);
+    g[0].push_back(3);
+    g[1].push_back(4);
+    g[1].push_back(5);
+    g[2].push_back(6);
+    g[3].push_back(7);
     
-    lc[0] = e;
-    lc[1] = f;
-    c.neighbors = lc;
-
-    lb[0] = d;
-    b.neighbors = lb;
+    dfs(0);
 
 
-    la[0] = b;
-    la[1] = c;    
-    a.neighbors = la;
-    
-
-
-    cout<< " dfs -> a" <<endl<<endl;
-    dfs(a);
-    
-    return 0; 
-
+    return 0;
 }
