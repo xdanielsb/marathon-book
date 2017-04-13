@@ -8,6 +8,7 @@ int vis[NUM_NODES];
 enum {WHITE, GRAY, BLACK};
 
 /*
+ * Check the deepest first.
  * o -> origin
  */
 void dfs(int o){
