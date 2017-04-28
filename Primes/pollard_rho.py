@@ -19,3 +19,4 @@ def pollardRho(N):
         return g
 
 print(pollardRho(10967535067))
+print(pollardRho(113))
