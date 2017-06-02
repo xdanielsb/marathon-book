@@ -16,7 +16,7 @@ void dfs(int o){
     for (int i = 0; i < g[o].size(); i++){
         int v = g[o][i];
         if (vis[v] == GRAY) cout << "There is a cycle. to " << o <<  endl;
-        if (vis[v] == WHITE) dfs(v); // visit neighbors
+        else if (vis[v] == WHITE) dfs(v); // visit neighbors
     }
     cout << o << endl;
     vis[o] = BLACK; //visited;
