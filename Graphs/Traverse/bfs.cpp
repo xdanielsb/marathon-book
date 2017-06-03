@@ -1,50 +1,50 @@
 #include <bits/stdc++.h>
-#define NUM_NODES 8
+#define pb push_back
+
 using namespace std;
 
-vector < int > g[NUM_NODES];
-int d[NUM_NODES];
+typedef vector < int > vi;
+vi dis;
+vector < vi > graph;
 
-void show(){
-    for (int i = 0; i < NUM_NODES; i++){
-        cout << i << " " << d[i] << endl;
+void show_distances(){
+    for( int i = 0; i< dis.size(); i++){
+        cout << i << " : " << dis[i] << "\n";
     }
 }
-/*
- * s -> origin
- * n -> number of nodes
- */
-void bfs(int o, int n){
-    for (int i = 0; i<=n;  i++) d[i] = -1;
+
+void bfs(int origin){
     queue < int > q;
-    q.push(o);
-    d[o]  = 0; 
-    while(q.size() > 0){
-        int  cur  = q.front(); q.pop();
-        for ( int i = 0; i < g[cur].size(); i++){
-            int next = g[cur][i];
-            if(d[next] == -1){
-                d[next] = d[cur] +1;
-                q.push(next);
+    dis[origin] = 0;
+    q.push(origin);
+
+    while( q.size() > 0){
+        int front = q.front(); q.pop();
+        for(int son: graph[front]){
+            if(dis[son] == -1){
+                dis[son] = dis[front] +1;
+                q.push(son);
             }
         }
     }
 }
+    
 
 int main(){
+    int num_nodes = 5;
+    dis.assign(num_nodes, -1);
 
-    g[0].push_back(1);
-    g[0].push_back(2);
-    g[0].push_back(3);
-    g[1].push_back(4);
-    g[1].push_back(5);
-    g[2].push_back(6);
-    g[3].push_back(7);
+    graph.resize(num_nodes);
+
+    graph[0].pb(1);
+    graph[0].pb(2);
+    graph[0].pb(3);
     
-    bfs(0, NUM_NODES);
+    graph[1].pb(4);
 
-    show();
+    bfs(0);
+    show_distances();
 
-
-    return 0 ;
+    return 0;
 }
+
