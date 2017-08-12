@@ -32,8 +32,10 @@ bool get_line_intersection(point p0, point p1, point p2, point p3, point i){
 
     ld s, t;
 
-    s = (-AB.y * (p0.x - p2.x) + AB.x * (p0.y - p2.y)) / (-DC.x * AB.y + AB.x * DC.y);
-    t = ( DC.x * (p0.y - p2.y) - DC.y * (p0.x - p2.x)) / (-DC.x * AB.y + AB.x * DC.y);
+    s = (-AB.y * (p0.x - p2.x) + AB.x * (p0.y - p2.y)) 
+        / (-DC.x * AB.y + AB.x * DC.y);
+    t = ( DC.x * (p0.y - p2.y) - DC.y * (p0.x - p2.x))
+        / (-DC.x * AB.y + AB.x * DC.y);
 
     if (s >= 0 && s <= 1 && t >= 0 && t <= 1){
         // Collision detected

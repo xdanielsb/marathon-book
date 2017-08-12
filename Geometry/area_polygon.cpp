@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#define f first
+#define s s
 
 using namespace std;
 
@@ -7,36 +9,27 @@ typedef long double ld;
 typedef pair <ld, ld> point;
 typedef vector < point > polygon;
 
-
 inline  point r(point o, point d){
-    return make_pair(d.first-o.first, d.second - o.second) ;
+    return make_pair(d.f-o.f, d.s - o.s) ;
 }
 
-/*Cross product*/
 inline ld cross_product(point o, point d){
-    ld cross  = (o.first * d.second)  - ( o.second * d.first);
+    ld cross  = (o.f * d.s)  - ( o.s * d.f);
     return cross > 0 ? cross :  cross * -1;
 }
-
-/*
- * find triangles based on  a reference and find the cross product for find the
- * areas.
- */
 
 inline ld area(polygon p){
 
     int num_points = p.size();
     ld area = 0;
     for (int i = 1; i < num_points -1 ; i++){
-        point l1triangle = r(p[0],p[i]);
-        point l2triangle = r(p[0],p[i+1]);
-        area += cross_product(l1triangle,l2triangle);
+        point l1 = r(p[0],p[i]);
+        point l2 = r(p[0],p[i+1]);
+        area += cross_product(l1,l2);
     }
-
     return area < 0 ?( -1 * area)/2:
                      (area/2 );
 }
-
 
 int main(){
     //Fast input and output

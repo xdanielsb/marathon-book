@@ -12,10 +12,8 @@ def binomial(N):
     for n in range(1, N+1):
         for k in range(1, n):
             choose[n][k] = choose[n-1][k-1] + choose[n-1][k]
-
 N = 431
 binomial(N)
-
 for line in sys.stdin:
     n, k = [int(y) for y in line.split()]
     val = choose[n][k]
