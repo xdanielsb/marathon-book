@@ -7,9 +7,10 @@ def combination(array, data, start, end, index, r):
         print (data)
         return
     for i in range(start, end+1):
-        """ "end-i+1 >= r-index" makes sure that including one element
-             at index will make a combination with remaining elements
-             at remaining positions
+        """ "end-i+1 >= r-index" makes sure that 
+             including one element  at index will
+             make a combination with remaining 
+             elementsat remaining positions
         """
         if (end - i + 1 >= r - index):
             data[index] = array[i]

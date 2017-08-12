@@ -9,11 +9,12 @@ typedef long long ll;
  * Kadane Algorithm
  * Complexity O(n)
  */
-
 inline ll get_max_sum(ll * data, int size){
-    ll max_so_far= data[0],  max_ending_here = data[0];
+    ll max_so_far= data[0];
+    ll max_ending_here = data[0];
     forn(i, 1, size){
-        max_ending_here = max(data[i], data[i] + max_ending_here);
+        max_ending_here = max(data[i], \
+                data[i] + max_ending_here);
         max_so_far = max(max_so_far, max_ending_here);
     }
     return max_so_far;
