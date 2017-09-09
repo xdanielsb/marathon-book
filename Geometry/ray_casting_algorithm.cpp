@@ -77,7 +77,6 @@ bool point_in_polygon(point p, verts a){
     return inside;
 }
 
-
 inline void test_point(verts v, point pun){
 
     if(point_on_segment(v,pun)){

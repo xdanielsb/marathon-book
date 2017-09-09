@@ -1,20 +1,14 @@
 #include<iostream>
 #include<stdio.h>
-
-
 using namespace std;
-
 /*
  * Floyd-Warshall gives us the shortest paths 
- * from all source to all target nodes.
+ * from all sources to all target nodes.
  */
-
 #define V 4  //number of vertex
 #define INF 9999999
 
-
-
-void printSolution(int dist[][V]){
+void print_sol(int dist[][V]){
     printf ("shortest distances \n");
     for (int i = 0; i < V; i++){
         for (int j = 0; j < V; j++){
@@ -26,12 +20,8 @@ void printSolution(int dist[][V]){
         printf("\n");
     }
 }
-
-
-void floydWarshall (int graph[][V]){
-
+void floyd (int graph[][V]){
     int dist[V][V], i, j, k;
-
     for (i = 0; i < V; i++)
         for (j = 0; j < V; j++)
             dist[i][j] = graph[i][j];
@@ -44,20 +34,14 @@ void floydWarshall (int graph[][V]){
             }
         }
     }
-
-    printSolution(dist);
+    print_sol(dist);
 }
-
-
-
 int main(){
-
     int graph[V][V] = { {0,   5,  INF, 10},
                         {INF, 0,   3, INF},
                         {INF, INF, 0,   1},
                         {INF, INF, INF, 0}
                       };
-
-    floydWarshall(graph);
+    floyd(graph);
     return 0;
 }

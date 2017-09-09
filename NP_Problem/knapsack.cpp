@@ -12,7 +12,6 @@ int v[MAXN];
 // objetos 1 .. i y se tiene una capacidad de j
 int dp[MAXN][MAXW];
 
-
 using namespace std;
 
 int knapsack(int n, int W){
@@ -21,7 +20,8 @@ int knapsack(int n, int W){
         for (int j = 0; j <= W; ++j){
             dp[i][j] = dp[i-1][j];
             if (j - w[i] >= 0){
-                dp[i][j] = max(dp[i][j], dp[i-1][j-w[i]] + v[i]);
+                dp[i][j] = max(dp[i][j], 
+                        dp[i-1][j-w[i]] + v[i]);
             }
         }
     }
@@ -31,10 +31,9 @@ int knapsack(int n, int W){
 int main(){
     int n = 10;
     int cont = n;
-    for( int i = 0; i < n; i++){
+    for( int i = 1; i < n; i++){
         w[i] = i;
         v[i] = n--;
     } 
-    
     cout << knapsack(10, 100);
 }

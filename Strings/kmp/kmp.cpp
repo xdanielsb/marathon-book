@@ -27,6 +27,6 @@ bool kmp(const string &needle, const string &haystack){
 
 int main(){
     string a ="hola";
-    string b ="thauautholÇ.eo";
+    string b ="thauautholueeo";
     cout << kmp(a, b);
 }

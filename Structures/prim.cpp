@@ -9,12 +9,10 @@ vector <edge> g[MAXN];
 // Lista de adyacencia
 bool visited[MAXN];
 
-
 // Retorna el costo total del MST
 int prim(int n){ // n = número de nodos
     for (int i = 0; i <= n; ++i) visited[i] = false;
     int total = 0;
-
     priority_queue<weight_node, vector <weight_node>,
     greater<weight_node> > q;
     // Empezar el MST desde 0 (cambiar si el nodo 0 no existe)

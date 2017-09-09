@@ -2,7 +2,7 @@
 using namespace std;
 const int MAXN = 1000000;
 bool sieve[MAXN + 5];
-vector <int> primes;
+vector <int> pri; //pri
 
 void build_sieve(){
     memset(sieve, false, sizeof(sieve));
@@ -15,16 +15,17 @@ void build_sieve(){
         }
     }
     for (int i = 2; i <= MAXN; ++i){
-        if (!sieve[i]) primes.push_back(i);
+        if (!sieve[i]) pri.push_back(i);
     }
 }
 
-vector <long long> factorization(long long a){
-    // Se asume que se tiene y se llamó la función build_sieve()
+vector <long long> fact(long long a){
+    // Se asume que se tiene y 
+    // se llamó la función build_sieve()
     vector <long long> ans;
     long long b = a;
-    for (int i = 0; 1LL * primes[i] * primes[i] <= a; ++i){
-        int p = primes[i];
+    for (int i = 0; 1LL * pri[i] * pri[i] <= a; ++i){
+        int p = pri[i];
         while (b % p == 0){
             ans.push_back(p);
             b /= p;
@@ -38,7 +39,7 @@ int main(){
     build_sieve();
     long long num_to_fact;
     cin >> num_to_fact;
-    vector < long long > vll = factorization(num_to_fact);
+    vector < long long > vll = fact(num_to_fact);
 
     for (int x=0; x< vll.size(); x++){
         cout << vll[x] << " "; 

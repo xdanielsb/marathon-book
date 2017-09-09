@@ -21,7 +21,8 @@ si divisores(int n) {
 
 int main() {
     si divi = divisores(10);
-    for (set<int>::iterator it=divi.begin(); it!=divi.end(); ++it)
+    for (set<int>::iterator it=divi.begin(); 
+            it!=divi.end(); ++it)
         printf("%d ", *it);
     printf("\n");
 }

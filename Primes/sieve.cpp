@@ -14,19 +14,16 @@ void show (vbool primes){
         cout << i << " : " << primes[i] << endl;
     }
 }
-
 vbool sieve(ll n){
     vbool sieve (tam);
     for (int i = 0; i < tam; i++)
         sieve[i] = true;
-
-    //default values
     sieve [0] = sieve[1] = false;
     ll root = sqrt(n);
-
     for (int i = 2; i < root; i++){ //find primes
         if(sieve[i]){
-            //removes all the multiples of the current prime
+            //removes all the multiples
+            //of the current prime
             for (int k = i*i; k<= n; k+=i){
                 sieve[k] = false;
             }
@@ -35,8 +32,6 @@ vbool sieve(ll n){
 
     return sieve;
 }
-
-
 int main(){
     //Initialize the array
     vbool primes = sieve(1000);

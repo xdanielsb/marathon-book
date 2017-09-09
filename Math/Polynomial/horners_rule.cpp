@@ -33,7 +33,7 @@ int Horner( int a[], int n, int x ){
 
 int main(){
     int grade = 3;
-    int a[ grade +1 ] = {-1,-2,-6,2};
+    int a[] = {-1,-2,-6,2};
     int x = 8;
 
     cout << Horner (a, grade, x);

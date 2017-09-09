@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define flag(x) printf("[%d]\n", x)
-
 typedef vector<int> vi;
-
 struct fenwick_tree {
     vi data;
     fenwick_tree(int _n) : data(vi(_n + 1, 0)) {}
@@ -26,8 +23,6 @@ struct fenwick_tree {
         return query(b) - query(a - 1);
     }
 };
-
-
 int main() {
     int x[5] = {1, 2, 3, 4, 5};
     fenwick_tree *fq = new fenwick_tree(8);

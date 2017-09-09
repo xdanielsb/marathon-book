@@ -12,6 +12,7 @@ int lcm(int n1, int n2){
 
 int main(){
     int n1=2366, n2=273;
-    printf("gcd(%ld, %ld) = %ld\n", n1, n2, gcd(n1,n2));
+    printf("gcd(%ld, %ld) = %ld\n", 
+            n1, n2, gcd(n1,n2));
     return 0;
 }
