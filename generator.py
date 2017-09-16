@@ -25,7 +25,7 @@ def get_sections():
                 print(tmp)
                 if len(tmp) == 1: continue;
                 filename = tmp[-1]
-                subsection_name = ' '.join([x for x in tmp[:-1]])+" "+ filename.split(".")[0]
+                subsection_name = ' '.join([x for x in tmp[1:-1]])+" "+ filename.split(".")[0]
                 dire = '/'.join([x for x in tmp[:-1]])
 
                 if subsection_name is None:
