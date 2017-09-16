@@ -18,7 +18,6 @@ def merge_sort(array):
         ##I send the array as a argument to change the same array and not another
         merge(lefthalf, righthalf, array)
 
-
 def merge(lefthalf, righthalf, array):
     index_array_left=0
     index_array_right=0

@@ -5,24 +5,29 @@ title = "Stanford ACM-ICPC Team Notebook"
 
 def get_sections():
     sections = []
+    aux  = {}
     section_name = None
     with open('content.txt', 'r') as f:
         for line in f:
             if '#' in line: line = line[:line.find('#')]
             line = line.strip()
             if len(line) == 0: continue
-            if line[0] == '[':
-                section_name = line[1:-1]
+            tmp = line.split('/')
+            if len(tmp) == 1: continue;
+
+            if tmp[0] not in aux :
+                aux[tmp[0]] = tmp[0]
+                section_name = tmp[0]
                 subsections = []
                 if section_name is not None:
                     sections.append((section_name, subsections))
             else:
-                tmp = line.split(' ')
-                if len(tmp) == 1:
-                    raise ValueError('Subsection parse error: %s' % line)
-                filename = tmp[0]
-                subsection_name = tmp[1]
-                dire = tmp[2]
+                print(tmp)
+                if len(tmp) == 1: continue;
+                filename = tmp[-1]
+                subsection_name = ' '.join([x for x in tmp[:-1]])+" "+ filename.split(".")[0]
+                dire = '/'.join([x for x in tmp[:-1]])
+
                 if subsection_name is None:
                     raise ValueError('Subsection given without section')
                 subsections.append((filename, subsection_name, dire))
@@ -60,7 +65,7 @@ if __name__ == "__main__":
     sections = get_sections()
     tex = get_tex(sections)
     print (tex)
-    with open('menu.tex', 'w') as f:
+    with open('contentNotebook.tex', 'w') as f:
         f.write(tex)
-    latexmk_options = ["latexmk", "-pdf", "notebook.tex"]
+    latexmk_options = ["latexmk", "-pdf", "templateNotebook.tex"]
     subprocess.call(latexmk_options)
