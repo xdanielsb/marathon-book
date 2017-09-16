@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-echo "Proccesing files..."
-shortener -i . -o __code__
-echo "Genarating notebooks.."
-mkdir -p notebooks
-notebook-generator __code__/cpp notebooks/cpp_notebook.pdf
-notebook-generator __code__/py notebooks/py_notebook.pdf
-rm -rf __code__
-
