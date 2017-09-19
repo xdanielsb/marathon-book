@@ -1,16 +1,10 @@
-#include <stdio.h>
-#include <algorithm>
-#include <iterator>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
-
 typedef vector <int > vi;
-
 inline void show(vi &data, int &size){
-    for (int i=0; i<size; i++)
-            printf("%d \t", data[i]);
-        printf("\n");
+  for (int i=0; i<size; i++)
+      printf("%d \t", data[i]);
+  printf("\n");
 }
 
 inline void permutation(vi data, int size){

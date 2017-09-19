@@ -6,6 +6,5 @@ def permutation(array, start = 0):
         array[start], array[i] = array[i], array[start]
         permutation(array, start + 1)
         array[start], array[i] = array[i], array[start]
-
-permutation(['d','a','n'])
-    
+if __name__ == "__main__":
+    permutation(['d','a','n'])

@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-// Constants
 const double PI = acos(-1);
+#define show(x) cout << #x << " = " << x << endl;
 struct point {
     double x;
     double y;
@@ -12,24 +11,21 @@ struct point {
         y = _y;
     }
 };
-inline point get_center(point A, point B, point C){
-
-    float yDelta_a = B.y - A.y;
-    float xDelta_a = B.x - A.x;
-    float yDelta_b = C.y - B.y;
-    float xDelta_b = C.x - B.x;
-
+inline point getCenter(point p1, point p2, point p3){
     point center;
-
-    float aSlope = yDelta_a/xDelta_a;
-    float bSlope = yDelta_b/xDelta_b; 
-
-    center.x = ( aSlope * bSlope * (A.y - C.y) 
-                + bSlope*(A.x + B.x)
-                - aSlope*(B.x+C.x) )/(2* (bSlope-aSlope) );
-
-    center.y = -1*(center.x - (A.x+B.x)/2)/aSlope +  (A.y+B.y)/2;
-
-    return center;     
+    float m1 = (p2.y - p1.y)/(p2.x - p1.x);
+    float m2 = (p3.y - p2.y)/(p3.x - p2.x);
+    center.x = ( m1 * m2 * (p1.y - p3.y) + m2 * ( p1.x + p2.x)
+                    - m1 * (p2.x + p3.x) )
+                / (2 * (m2 - m1) );
+    center.y = -1 * (center.x - (p1.x + p2.x) / 2) / m1 +  (p1.y + p2.y) / 2;
+    return center;
 }
 
+int main(){
+  point p1(1,1), p2(2,4), p3(5,3);
+  point res = getCenter(p1, p2, p3);
+  show(res.x)
+  show(res.y)
+  return 0;
+}

@@ -1,56 +1,38 @@
-#include<iostream>
-#include<vector>
-#include<math.h>
-#include<algorithm>
-
-#define magnitude(x) (sqrt(x.first*x.first + x.second*x.second))
-
+#include<bits/stdc++.h>
+#define f first
+#define s second
+#define mp make_pair
+#define magnitude(x) (sqrt(x.f*x.f + x.s*x.s))
+#define show(x) cout << #x << " = " << x << endl;
 using namespace std;
 
 typedef long double ld;
 typedef pair< ld, ld>  point;
-
-/* Difference between two points */
-inline  point r(point o, point d){
-    return make_pair(d.first-o.first, d.second - o.second) ;
+inline  point diff(point o, point d){
+    return mp(d.f - o.f, d.s - o.s) ;
 }
-
-/*Cross product*/
-inline ld cross_product(point o, point d){
-    ld cross  = (o.first * d.second)  - ( o.second * d.first);
+inline ld crossProduct(point o, point d){
+    ld cross  = (o.f * d.s)  - ( o.s * d.f);
     return cross>0? cross: cross *-1;
 }
-
 /*
- *First find cross product
+ *Find the  minimun distance from a point to a line
+ * just having  two points 'AB' of the line and the point C
  */
 ld distance(point A, point B, point C){
-    //First create vector AB   and AC
-    point AB = r(A,B);
-    point AC = r(A,C);
-
-    ld cross = cross_product(AB, AC);
-    ld distance1 = cross / magnitude(AB);
-    ld distance2 = cross / magnitude(AC);
-
+    //A, B points in the line
+    point AB = diff(A,B); //base
+    point AC = diff(A,C);
+    ld area = crossProduct(AB, AC);
+    ld distance1 = area / magnitude(AB);
+    ld distance2 = area / magnitude(AC);
     return min(distance1, distance2);
 }
-
-/*
- *Find the distance from the segment AB to C
- */
-
 int main(){
-    //Fast input and output
-    ios::sync_with_stdio(false);
-	cin.tie(NULL);
-
     point  A,B,C;
-
-    A = make_pair(0,0);
-    B = make_pair(0,2);
-    C = make_pair(5,0);
-
+    A = mp(2,4);
+    B = mp(5,0);
+    C = mp(6,4);
     cout << distance(A,B,C);
     return 0;
 }

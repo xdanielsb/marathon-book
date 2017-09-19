@@ -1,140 +1,82 @@
-#include <iostream>
-#include <math.h>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
-/* CONVEX HULL: Minimun Convex Polygon
- * Convex hull is the smallest set of points that containss tho set X.
- */
+struct Point{
+    int x, y;
+};
+Point p0;
+Point nextToTop(stack<Point> &S){
+    Point p = S.top();
+    S.pop();
+    Point res = S.top();
+    S.push(p);
+    return res;
+}
+int swap(Point &p1, Point &p2){
+    Point temp = p1;
+    p1 = p2;
+    p2 = temp;
+}
 
+int distSq(Point p1, Point p2){
+    return (p1.x - p2.x)*(p1.x - p2.x) +
+          (p1.y - p2.y)*(p1.y - p2.y);
+}
 
+int orientation(Point p, Point q, Point r){
+    int val = (q.y - p.y) * (r.x - q.x) -
+              (q.x - p.x) * (r.y - q.y);
+    if (val == 0) return 0;  // colinear
+    return (val > 0)? 1: 2; // clock or counterclock wise
+}
 
-/*
- * Steps for the algorithm
- * 1- loop through all of the points and find the most left point
- *    if there is a tie, pick the highest point
- * 2- from the most left we are going to use cross product for finding
- *    the further clockwise from the current possition
- * 3- If there is no colinear points the code is straighforward.
- */
+int compare(const void *vp1, const void *vp2){
+   Point *p1 = (Point *)vp1;
+   Point *p2 = (Point *)vp2;
+   int o = orientation(p0, *p1, *p2);
+   if (o == 0)
+     return (distSq(p0, *p2) >= distSq(p0, *p1))? -1 : 1;
+   return (o == 2)? -1: 1;
+}
 
-typedef long double ld;
-const ld INF = 9000000000000000000;
-typedef struct point {
-    ld x;
-    ld y;
-} point;
-
-typedef vector< point > points;
-#define magnitud(p) (sqrt(p.x * p.x + p.y * p.y))
-#define crossproduct(a,b) (a.x * b.y - a.y * b.x)
-#define dist(a,b) (sqrt(pow((b.x - a.x),2) + pow((b.y * a.y),2)))
-/*
- * Return the index of the most left point
- */
-inline int left_most(points p){
-    int cant = p.size();
-    if(cant > 0){
-
-        int ref = 0;
-        for( int i = 1; i < cant; i++){
-            if (p[i].x < p[ref].x ){
-                ref = i;
-            }
+void convexHull(Point points[], int n){
+   int ymin = points[0].y, min = 0;
+   for (int i = 1; i < n; i++){
+     int y = points[i].y;
+     if ((y < ymin) || (ymin == y && points[i].x < points[min].x))
+        ymin = points[i].y, min = i;
+   }
+   swap(points[0], points[min]);
+   p0 = points[0];
+   qsort(&points[1], n-1, sizeof(Point), compare);
+   int m = 1;
+   for (int i=1; i<n; i++){
+       while (i < n-1 && orientation(p0, points[i], points[i+1]) == 0){
+          i++;
         }
-        return ref;
-    }
-    return -1;
+       points[m] = points[i];
+       m++;
+   }
+   if (m < 3) return;
+   stack<Point> S;
+   S.push(points[0]);
+   S.push(points[1]);
+   S.push(points[2]);
+
+   for (int i = 3; i < m; i++){
+      while (orientation(nextToTop(S), S.top(), points[i]) != 2)
+         S.pop();
+      S.push(points[i]);
+   }
+   while (!S.empty()){
+       Point p = S.top();
+       cout << "(" << p.x << ", " << p.y <<")" << endl;
+       S.pop();
+   }
 }
-
-/* Create a vector based on two points
- */
-inline point cv(point a, point b){
-    return {b.x - a.x, b.y - a.y};
-}
-
-/*
- * lm -> stands out the left most point
- * more_points -> if is true use as many points as possible
- *                for the convex hull otherwise use as few
- *                as possible
- */
-inline void convex_hull(points p, int lm, bool more_points){
-    int cant = p.size();
-
-    vector< bool > used (cant, false);
-    /*
-     * Just to clarify
-     */
-    int start = lm;
-
-
-    do
-    {
-        int n = -1;
-        ld dist = more_points?INF:0;
-
-
-        cout << "Left most is " << lm << ": x= " << p[lm].x << " y= "<< p[lm].y << endl;
-
-        for (int i = 0; i < cant ; i ++){
-
-            //Do not go back to the same point
-            if (i == lm) continue;
-
-            //Do not reuse
-            if(used[i])continue;
-
-
-            //Set N
-            if ( n==-1) {
-                n =i;
-
-                continue; //if I do not put this continue, the
-                          //program will do a cross product
-                          //with the same line
-            }
-
-            ld cross = crossproduct(cv(p[i],p[lm]), cv(p[n],p[lm]));
-            ld d = dist(p[i], p[lm]);
-            if (cross < 0 ){ //This is the magic
-                n = i;
-                dist = d;
-            }else if (cross == 0){
-                //In this case, both N and X are in the
-                //same direction.  If more_points is true, pick the
-                //closest one, otherwise pick the farthest one.
-                if(more_points && d < dist){
-                    dist = d;
-                    n = i;
-                }else if(!more_points && d > dist){
-                    dist = d;
-                    n = i;
-                }
-            }
-
-        }
-
-        lm = n; //change the most left;
-        used[lm] = true;
-    }while(start != lm);
-}
-
-
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    points p(6);
-
-    p[0] = {0,2};
-    p[1] = {3,5};
-    p[2] = {4,3};
-    p[3] = {3,0};
-    p[4] = {3,3};
-    p[5] = {4,6};
-    convex_hull(p, left_most(p), false);
-
+    Point points[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
+                      {0, 0}, {1, 2}, {3, 1}, {3, 3}};
+    int n = sizeof(points)/sizeof(points[0]);
+    convexHull(points, n);
     return 0;
-
 }
