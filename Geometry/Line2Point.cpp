@@ -8,7 +8,14 @@ using namespace std;
 
 typedef long double ld;
 typedef pair< ld, ld>  point;
-inline  point diff(point o, point d){
+struct line {
+  point o, d;
+  line(point _o, point _d){
+    o = _o;
+    d = _d;
+  }
+};
+inline point diff(point o, point d){
     return mp(d.f - o.f, d.s - o.s) ;
 }
 inline ld crossProduct(point o, point d){
@@ -19,8 +26,9 @@ inline ld crossProduct(point o, point d){
  *Find the  minimun distance from a point to a line
  * just having  two points 'AB' of the line and the point C
  */
-ld distance(point A, point B, point C){
+ld distance(line l, point C){
     //A, B points in the line
+    point A = l.o, B=l.d;
     point AB = diff(A,B); //base
     point AC = diff(A,C);
     ld area = crossProduct(AB, AC);
@@ -33,6 +41,6 @@ int main(){
     A = mp(2,4);
     B = mp(5,0);
     C = mp(6,4);
-    cout << distance(A,B,C);
+    cout << distance(line(A,B),C);
     return 0;
 }
