@@ -1,3 +1,4 @@
+*.exe
 *.out
 *.pyc
 *.class

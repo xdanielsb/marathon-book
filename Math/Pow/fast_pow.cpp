@@ -2,6 +2,8 @@
 
 using namespace std;
 
+typedef long long ll;
+
 ll modular_pow(ll  base, int exponent, ll  modulus){
 	ll result = 1;
 	while (exponent > 0){
@@ -18,6 +20,7 @@ ll modular_pow(ll  base, int exponent, ll  modulus){
 
 
 int main(){
-  
+	ll exp = 1023;
+	cout << modular_pow (2, exp, 999) << endl;
 
 }

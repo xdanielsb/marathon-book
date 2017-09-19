@@ -4,7 +4,7 @@ using namespace std;
 typedef long long ll;
 
 /* Function to calculate (base^exponent)%modulus */
- int modular_pow(ll  base, int exponent, ll  modulus){
+ ll modular_pow(ll  base, int exponent, ll  modulus){
 	/* initialize result */
 	ll result = 1;
 
