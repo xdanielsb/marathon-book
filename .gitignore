@@ -2,4 +2,8 @@
 *.out
 *.pyc
 *.class
-notebooks
+*.aux
+*.log
+*.fls
+*.toc
+*.fdb_latexmk
