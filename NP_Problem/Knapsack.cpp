@@ -1,18 +1,14 @@
 #include <bits/stdc++.h>
-#include <algorithm>
+using namespace std;
 
-// Maximo número de objetos
-const int MAXN = 2005;
-// Maximo tamano
-const int MAXW = 2005;
+typedef vector < int > vi;
+typedef vector < vi  > vii;
 // w[i] = peso del objeto i (i comienza en 1)
-int w[MAXN];
-int v[MAXN];
+vi w;
+vi v;
 // dp[i][j] máxima ganancia si se toman un subconjunto de los
 // objetos 1 .. i y se tiene una capacidad de j
-int dp[MAXN][MAXW];
-
-using namespace std;
+int ** dp;
 
 int knapsack(int n, int W){
     for (int j = 0; j <= W; ++j) dp[0][j] = 0;
@@ -20,7 +16,7 @@ int knapsack(int n, int W){
         for (int j = 0; j <= W; ++j){
             dp[i][j] = dp[i-1][j];
             if (j - w[i] >= 0){
-                dp[i][j] = max(dp[i][j], 
+                dp[i][j] = max(dp[i][j],
                         dp[i-1][j-w[i]] + v[i]);
             }
         }
@@ -29,11 +25,18 @@ int knapsack(int n, int W){
 }
 
 int main(){
-    int n = 10;
-    int cont = n;
-    for( int i = 1; i < n; i++){
+    int numObjects = 10;
+    int maxCapacity = 100;
+    dp = new int*[numObjects];
+    for (int i =0; i < maxCapacity; i++)
+      dp[i]= new int[maxCapacity];
+
+    w.resize(numObjects);
+    v.resize(numObjects);
+    int cont = numObjects;
+    for( int i = 1; i < numObjects; i++){
         w[i] = i;
-        v[i] = n--;
-    } 
+        v[i] = cont--;
+    }
     cout << knapsack(10, 100);
 }
