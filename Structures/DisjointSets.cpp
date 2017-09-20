@@ -1,36 +1,33 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-void initialize(int *arr, int *size, int n) {
-    for(int i=0; i<n; i++){
-        arr[i] = i;
-        size[i] = 1;
-    }
+typedef vector<int> vi;
+struct union_find {
+  vi data, pe;
+  union_find(int n) : data(vi(n)), pe(vi(n)) {
+    for(int i=0; i<data.size(); i++)
+      data[i] = i;
+  }
+  int find(int x) {
+    if(x == data[x]) return x;
+    data[x] = find(data[x]);
+    return data[x];
+  }
+  bool unite(int x, int y) {
+    int px = find(x);
+    int py = find(y);
+    if(px == py) return false;
+    if(pe[px] > pe[py]) swap(px, py);
+    pe[px] += pe[py];
+    data[py] = px;
+    return true;
+  }
+};
+int main() {
+    union_find uf(10);
+    uf.unite(0, 2);
+    cout << uf.find(0) << endl;
+    cout << uf.find(2) << endl;
+    assert(uf.find(0) == uf.find(2));
+    assert(uf.find(0) != uf.find(1));
+    return 0;
 }
-
-int find(int *arr, int i) {
-    if(arr[i] == i) {
-        return i;
-    } else {
-        arr[i] = find(arr, arr[i]);
-        return arr[i];
-    }
-}
-
-void unite(int *arr, int *size, int a, int b) {
-    int root_a = find(arr, a);
-    int root_b = find(arr, b);
-
-    if(root_a == root_b)
-        return;
-
-    if(size[root_a] < size[root_b]) {
-        arr[root_a] = arr[root_b];
-        size[root_b] += arr[root_a];
-    } else {
-        arr[root_b] = arr[root_a];
-        size[root_a] += arr[root_b];
-    }
-}
-
-int main() {}
