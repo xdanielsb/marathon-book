@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 const int MAXN = 10005;
+#define pb push_back
 typedef pair <int, int> edge;
 // Pareja (nodo, peso)
 typedef pair <int, int> weight_node; // Pareja (peso, nodo)
 vector <edge> g[MAXN];
 // Lista de adyacencia
 bool visited[MAXN];
-
 // Retorna el costo total del MST
 int prim(int n){ // n = número de nodos
     for (int i = 0; i <= n; ++i) visited[i] = false;
@@ -38,17 +37,14 @@ int prim(int n){ // n = número de nodos
 
 int main(){
     //Nodo 0 se une al 1 con peso 1
-    g[0].push_back(edge(1,1));
+    g[0].pb(edge(1,1));
     //Nodo 0 se une al 2 con peso 2
-    g[0].push_back(edge(2,2));
+    g[0].pb(edge(2,2));
     //Nodo 0 se une al 3  con peso 3
-    g[0].push_back(edge(3,3));
-    
-    g[1].push_back(edge(5,4));
-    g[2].push_back(edge(4,5));
-    g[3].push_back(edge(4,1));
-
+    g[0].pb(edge(3,3));
+    g[1].pb(edge(5,4));
+    g[2].pb(edge(4,5));
+    g[3].pb(edge(4,1));
     cout << prim(4);
-
     return 0;
 }
