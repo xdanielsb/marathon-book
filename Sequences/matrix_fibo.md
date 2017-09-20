@@ -12,13 +12,9 @@
 
 #### n is the nth number in the fibonacci sequence
 
-
 |               | Case             | Time Complexity |
 | ------------- |:----------------:|:---------------:|
 | Worst Case    | T(n)             |      O(log(n))  |
-
-
-
 
 ```c++
 #include <iostream>

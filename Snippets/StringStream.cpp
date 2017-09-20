@@ -1,8 +1,5 @@
-#include <iostream>
-#include <sstream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
-
 int main(){
     string line;
     while (getline(cin, line)){
@@ -13,4 +10,3 @@ int main(){
         cout << endl << "# Words: " << count << endl;
     }
 }
-

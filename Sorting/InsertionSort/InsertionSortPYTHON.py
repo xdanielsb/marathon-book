@@ -1,10 +1,7 @@
-
 def show(array):
     for element in array:
         print(element, end = " ")
     print("")
-
-
 def sort(array, length_array):
     for index in range(1,length_array):
         key = array[index]
@@ -13,8 +10,6 @@ def sort(array, length_array):
             array[index_aux+1] = array[index_aux]
             index_aux = index_aux -1
         array[index_aux+1]=key
-
-
 def main():
     array = [50, 885, 1 , -8 , 54 , 2, 54, 0]
     print("Original array")

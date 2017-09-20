@@ -1,13 +1,9 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
-
 bool kmp(const string &needle, const string &haystack){
     int m = needle.size();
     vector<int> border(m);
     border[0] = 0;
-
     for (int i = 1; i < m; ++i) {
         border[i] = border[i - 1];
         while (border[i] > 0 and needle[i] != needle[border[i]])

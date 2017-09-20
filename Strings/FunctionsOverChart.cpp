@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main(){
   char a = 'a';
   cout << (isalnum(a)?"true":"false")  << endl;

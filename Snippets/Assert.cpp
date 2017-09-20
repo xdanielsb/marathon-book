@@ -9,9 +9,7 @@ void test(int num){
 }
 
 int main(){
-    int a=10, b=22, c=23, d=32;
+    int a=10, b=21;
     test(a);
     test(b);
-    test(c);
-    test(d);
 }

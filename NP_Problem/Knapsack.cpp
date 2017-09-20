@@ -11,17 +11,17 @@ vi v;
 int ** dp;
 
 int knapsack(int n, int W){
-    for (int j = 0; j <= W; ++j) dp[0][j] = 0;
-    for (int i = 1; i <= n; ++i){
-        for (int j = 0; j <= W; ++j){
-            dp[i][j] = dp[i-1][j];
-            if (j - w[i] >= 0){
-                dp[i][j] = max(dp[i][j],
-                        dp[i-1][j-w[i]] + v[i]);
-            }
-        }
+  for (int j = 0; j <= W; ++j) dp[0][j] = 0;
+  for (int i = 1; i <= n; ++i){
+    for (int j = 0; j <= W; ++j){
+      dp[i][j] = dp[i-1][j];
+      if (j - w[i] >= 0){
+        dp[i][j] = max(dp[i][j],
+          dp[i-1][j-w[i]] + v[i]);
+      }
     }
-    return dp[n][W];
+  }
+  return dp[n][W];
 }
 
 int main(){

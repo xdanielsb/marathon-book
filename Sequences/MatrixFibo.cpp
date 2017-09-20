@@ -1,36 +1,24 @@
 #include <iostream>
-/* This program computes fibo using 
- * and optimization of the matrix way
- */
-
-/*REFERENCES
- * This method is contributed by Chirag Agarwal.
- * https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form
- * http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
- */
-
 using namespace std;
+typedef long long ll;
+ll  *f;
 
-const int MAX = 1000;
- 
-int f[MAX] = {0};
- 
-int fib(int n){
+int fib(ll n){
     if (n == 0)  return 0;
     if (n == 1 || n == 2) return (f[n] = 1);
- 
     if (f[n])  return f[n];
-    //pretty good way to know if a number is odd or even
     int k = (n & 1)? (n+1)/2 : n/2;
- 
-    f[n] = (n & 1) ? ( fib(k) * fib(k) + fib(k-1) * fib(k-1) )
-           : (2*fib(k-1) + fib(k))*fib(k);
- 
+    if (n&1){
+      f[n] = (ll) fib(k) * fib(k) + fib(k-1) * fib(k-1) ;
+    }else{
+      f[n] = (2*fib(k-1) + fib(k))*fib(k);
+    }
     return f[n];
 }
- 
+
 int main(){
-    int n = 9;
+    ll n = 10;
+    f = new ll[n];
     cout<< fib(n);
     return 0;
 }
