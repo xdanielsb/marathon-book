@@ -2,6 +2,7 @@
 using namespace std;
 
 typedef long long ll;
+ll num;
 
 int modular_pow(ll  base, int exponent, ll  modulus){
 	ll result = 1;
@@ -13,7 +14,6 @@ int modular_pow(ll  base, int exponent, ll  modulus){
 	}
 	return result;
 }
-
 ll  PollardRho(ll  n){
 	srand (time(NULL));
 	if (n==1) return n;
@@ -21,7 +21,8 @@ ll  PollardRho(ll  n){
 	ll  x = (rand()%(n-2))+2;
 	ll y = x;
 	ll  c = (rand()%(n-1))+1;
-	ll d = 1; 
+	ll d = 1;
+	cout << n << endl;
 	while (d==1){
 		x = (modular_pow(x, 2, n) + c + n)%n;
 		y = (modular_pow(y, 2, n) + c + n)%n;
@@ -34,9 +35,7 @@ ll  PollardRho(ll  n){
 }
 
 int main(){
-	ll  n = 10967535067;
-	printf("One of the divisors for %lld is %lld.",
-		n, PollardRho(n));
+	num = 124554;
+	printf("One of the divisors for %lld is %lld.",num, PollardRho(num));
 	return 0;
 }
-

@@ -1,10 +1,7 @@
-#include <iostream>
-#include <math.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-
-bool is_prime(ll n){
+bool isPrime(ll n){
     if (n < 2) return false;
     if (n < 4) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
@@ -15,13 +12,11 @@ bool is_prime(ll n){
     }
     return true;
 }
-
 int main(){
-    cout << is_prime(23234) << endl;
-    cout << is_prime(2) << endl;
-    cout << is_prime(7454) << endl;
-    cout << is_prime(976) << endl;
-    cout << is_prime(1973) << endl;
+    cout << isPrime(23234) << endl;
+    cout << isPrime(2) << endl;
+    cout << isPrime(7454) << endl;
+    cout << isPrime(976) << endl;
+    cout << isPrime(1973) << endl;
     return 0;
-
 }
