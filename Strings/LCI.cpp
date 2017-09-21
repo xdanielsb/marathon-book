@@ -20,6 +20,6 @@ int main(){
 	int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 };
 	int n = sizeof(arr)/sizeof(arr[0]);
 	printf("Length of lis is %d\n", lis( arr, n ) );
-  //sol = 10, 22, 33, 50, 60
+	//sol = 10, 22, 33, 50, 60
 	return 0;
 }

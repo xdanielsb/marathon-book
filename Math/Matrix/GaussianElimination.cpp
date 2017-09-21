@@ -59,19 +59,16 @@ void gaussianElimination(){
 }
 
 int main(){
+	//The last column represents the coefficients
+	//input matrix.in
 	cin >> N;
 	mat = new double*[N];
 	for (int i =0; i <=N; i++){
 		mat[i] = new double[N+1];
 	}
-
-	for (int row=0; row<N; row++){
-		for ( int col=0; col<=N;col++){
+	for (int row=0; row<N; row++)
+		for ( int col=0; col<=N;col++)
 			cin >> mat[row][col];
-			cout << mat[row][col] << " ";
-		}
-		cout << endl;
-	}
 
 	gaussianElimination();
 	return 0;
