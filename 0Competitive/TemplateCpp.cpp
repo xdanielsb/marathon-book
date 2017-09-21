@@ -5,6 +5,12 @@
 #define s second
 #define mp make_pair
 #define pb push_back
+#define isOdd(x) (x & 0x01)
+#define forn(i, n) for(int i = 0 ; (i) < (n) ; ++i)
+#define foreach (x,v) for (typeof(v).begin() x=(v).begin(); x!=(v).end(); ++x)
+#define sz(a) ((int)(a).size())
+#define swap(x,y) (x^=y, y^=x, x^=y)
+
 const double PI = acos(-1);
 const ld INF = 1e18;
 const double EPS = 1e-15;
