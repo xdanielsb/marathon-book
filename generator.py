@@ -20,17 +20,16 @@ def get_sections():
                 section_name = tmp[0]
                 subsections = []
                 if section_name is not None:
-                    sections.append((section_name, subsections))
-            else:
-                print(tmp)
-                if len(tmp) == 1: continue;
-                filename = tmp[-1]
-                subsection_name = ' '.join([x for x in tmp[1:-1]])+" "+ filename.split(".")[0]
-                dire = '/'.join([x for x in tmp[:-1]])
+                    sections.append((section_name, subsections))            
 
-                if subsection_name is None:
-                    raise ValueError('Subsection given without section')
-                subsections.append((filename, subsection_name, dire))
+            if len(tmp) == 1: continue;
+            filename = tmp[-1]
+            subsection_name = ' '.join([x for x in tmp[1:-1]])+" "+ filename.split(".")[0]
+            dire = '/'.join([x for x in tmp[:-1]])
+
+            if subsection_name is None:
+                raise ValueError('Subsection given without section')
+            subsections.append((filename, subsection_name, dire))
     return sections
 
 def get_style(filename):
