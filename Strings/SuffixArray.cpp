@@ -1,12 +1,9 @@
 #include <bits/stdc++.h>
-using namespace std;
-
 #define F first
 #define S second
-
+using namespace std;
 typedef pair<int, int> ii;
 typedef long long ll;
-
 string s;
 const int N_MAX = 1000;
 int n, m, sa[N_MAX], rk[N_MAX], lcp[N_MAX];
@@ -62,6 +59,6 @@ int main() {
     n = s.size(); m = b.size();
     suffix_array(); build_lcp();
     ii result = LCS();
-    cout << result.F << ' ' << result.S << endl;
-    cout << s.substr(sa[result.S], result.F) << '\n';
+    cout << result.F << ' ' << result.S << endl; // 9 25
+    cout << s.substr(sa[result.S], result.F) << '\n'; //panaderia
 }
