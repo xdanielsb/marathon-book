@@ -35,14 +35,16 @@ ld distance(line l, point C){
     ld area = crossProduct(AB, AC);
     ld distance1 = area / magnitude(AB);
     ld distance2 = area / magnitude(AC);
-    return mun(distance1, distance2);
+    show(distance1);
+    show(distance2);
+    return min(distance1, distance2);
 }
 
 int main(){
     point  A,B,C;
-    A = mp(0,3);
-    B = mp(1,2);
-    C = mp(2,2);
+    A = mp(0,4);
+    B = mp(5,0);
+    C = mp(6,8);
     printf("%.3lf",distance(line(A,B),C));
     return 0;
 }
