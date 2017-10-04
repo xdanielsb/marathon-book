@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define endl '\n'
 #define MAX 1000001
 #define pb push_back
 using namespace std;
@@ -32,12 +33,12 @@ inline void zAlgorithm(string s, int m){
 }
 
 int main() {
-    string haystack = "abcabc";
-    string needle = "abc";
+    string haystack = "abcabc", needle = "abc";
     int n = haystack.size(), m = needle.size();
     zAlgorithm(needle + "#" + haystack, m);
-    printf("Locations where start to match. \n");
-    for (int i=0;i<matches.size();i++) printf("%d ",matches[i]);
-    printf("\n");
+    cout << ("Locations where start to match. \n");
+    for (int i=0;i<matches.size();i++) cout << matches[i] << " ";
+    cout << endl <<"Number of matches: " << matches.size() << endl;
+
     return 0;
 }
