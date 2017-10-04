@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-#include <iostream>
+#include <bits/stdc++.h>
 #define sz(a) ((int)(a).size())
 using namespace std;
 int main(){

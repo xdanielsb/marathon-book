@@ -6,7 +6,7 @@
 #define show(x) cout << #x << " = " << x << endl;
 using namespace std;
 
-typedef long double ld;
+typedef  double ld;
 typedef pair< ld, ld>  point;
 struct line {
   point o, d;
@@ -18,6 +18,7 @@ struct line {
 inline point diff(point o, point d){
     return mp(d.f - o.f, d.s - o.s) ;
 }
+
 inline ld crossProduct(point o, point d){
     ld cross  = (o.f * d.s)  - ( o.s * d.f);
     return cross>0? cross: cross *-1;
@@ -34,13 +35,16 @@ ld distance(line l, point C){
     ld area = crossProduct(AB, AC);
     ld distance1 = area / magnitude(AB);
     ld distance2 = area / magnitude(AC);
+    show(distance1);
+    show(distance2);
     return min(distance1, distance2);
 }
+
 int main(){
     point  A,B,C;
-    A = mp(2,4);
+    A = mp(0,4);
     B = mp(5,0);
-    C = mp(6,4);
-    cout << distance(line(A,B),C);
+    C = mp(6,8);
+    printf("%.3lf",distance(line(A,B),C));
     return 0;
 }
