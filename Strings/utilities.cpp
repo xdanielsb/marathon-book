@@ -1,6 +1,27 @@
 #include <bits/stdc++.h>
+#define pb push_back
 using namespace std;
+typedef vector <string> vs;
+int toNum(string a){
+	stringstream toNum(a);
+	int num;
+	toNum >> num;
+	return num;
+}
+vs split(string line, char d){
+	vector < string > elements;
+	stringstream ss(line);
+	string item;
+	while(getline(ss, item, d))	elements.pb(item);
+	return elements;
+}
+
 int main(){
+  vs d1 = split("1990/10/5", '/');
+  for (string s: d1){
+    cout << toNum(s) << endl;
+  }
+
   char a = 'a';
   cout << (isalnum(a)?"true":"false")  << endl;
   cout <<( isalpha(a)?"true":"false") << endl;
