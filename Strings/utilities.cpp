@@ -11,9 +11,13 @@ int toNum(string a){
 
 string toString(double d){
   stringstream ss;
-	ss << fixed << setprecision(10) << fl;
-	string num = ss.str();
-	return num;
+  ss << fixed << setprecision(10) << fl;
+  string num = ss.str();
+  return num;
+}
+
+void tolowers(string &data){
+   transform(data.begin(), data.end(), data.begin(), ::tolower);
 }
 
 vs split(string line, char d){
