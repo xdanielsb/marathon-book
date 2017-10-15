@@ -8,6 +8,14 @@ int toNum(string a){
 	toNum >> num;
 	return num;
 }
+
+string toString(double d){
+  stringstream ss;
+	ss << fixed << setprecision(10) << fl;
+	string num = ss.str();
+	return num;
+}
+
 vs split(string line, char d){
 	vector < string > elements;
 	stringstream ss(line);
