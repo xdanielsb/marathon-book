@@ -24,10 +24,16 @@ vi tsp(vpdd cities, int n){
 	 for (int i = 1 ; i < n ;i++){
 	 		best = -1;
 	 		for (int j = 0; j < n ; j++){
-	 			double dist1 = dist(cities[res[i-1]], cities[j]);
-	 			double dist2 = dist(cities[res[i-1]], cities[best]);
-	 			if(used[j] == false and (-1 == best ||  dist1 < dist2)){
-	 				best = j;	
+	 			if(!used[j]){
+	 				if(-1 == best){
+		 				best = j;
+		 				continue;
+					}
+		 			double dist1 = dist(cities[res[i-1]], cities[j]);
+		 			double dist2 = dist(cities[res[i-1]], cities[best]);
+		 			if(dist1 < dist2){
+		 				best = j;	
+					}	
 				}
 			}
 			res[i] = best;

@@ -20,6 +20,7 @@ struct point {int x, y;};
 #define foreach (x,v) for (typeof(v).begin() x=(v).begin(); x!=(v).end(); ++x)
 #define sz(a) ((int)(a).size())
 #define swap(x,y) (x^=y, y^=x, x^=y)
+#define mod(a,b) (b + (a % b)) % b)
 
 const double PI = acos(-1);
 const ld INF = 1e18;
