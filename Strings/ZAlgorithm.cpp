@@ -11,21 +11,21 @@ vector<int> matches;
 
 inline void zAlgorithm(string s, int m){
   int len = s.length();
-  int L = 0, R = 0;
+  int l = 0, r = 0;
   for (int i = 1 ;i < len; i++){
-    if (i > R) {
-      L = R = i;
-      while (R < len && s[R-L] == s[R]) R++;
-      Z[i] = R-L;
-      R--;
+    if (i > r) {
+      l = r = i;
+      while (r < len && s[r-l] == s[r]) r++;
+      Z[i] = r-l;
+      r--;
     }else {
-      int k = i - L;
-      if (Z[k] < R-i+1) Z[i] = Z[k];
+      int k = i - l;
+      if (Z[k] < r-i+1) Z[i] = Z[k];
       else {
-        L = i;
-        while (R < len && s[R-L] == s[R]) R++;
-        Z[i] = R - L;
-        R--;
+        l = i;
+        while (r < len && s[r-l] == s[r]) r++;
+        Z[i] = r - l;
+        r--;
       }
     }
     if (Z[i] == m) matches.pb(i - m - 1);
@@ -36,7 +36,7 @@ int main() {
     string haystack = "abcabc", needle = "abc";
     int n = haystack.size(), m = needle.size();
     zAlgorithm(needle + "#" + haystack, m);
-    cout << ("Locations where start to match. \n");
+    cout << ("locations where start to match. \n");
     for (int i=0;i<matches.size();i++) cout << matches[i] << " ";
     cout << endl <<"Number of matches: " << matches.size() << endl;
 

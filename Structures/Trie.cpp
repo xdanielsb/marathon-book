@@ -22,9 +22,9 @@ struct node {
  */
 void insert(node* nd, char *s){
 	if(*s){
-        int pos = *s - 'a';
+    int pos = *s - 'a';
 		if(!nd->son[pos]) nd->son[pos]=new node();
-		insert(nd->son[pos], s+1);
+			insert(nd->son[pos], s+1);
 	}else{
 		nd->is_end = true;
 	}
@@ -35,7 +35,7 @@ void insert(node* nd, char *s){
  */
 int contains(node *nd, char *s){
 	if(*s){
-        int pos = *s - 'a';
+    int pos = *s - 'a';
 		if(!nd->son[pos]) return false;
 		return contains(nd->son[pos], s+1);
 	}else{

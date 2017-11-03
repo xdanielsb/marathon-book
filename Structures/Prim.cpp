@@ -10,41 +10,41 @@ vector <edge> g[MAXN];
 bool visited[MAXN];
 // Retorna el costo total del MST
 int prim(int n){ // n = número de nodos
-    for (int i = 0; i <= n; ++i) visited[i] = false;
-    int total = 0;
-    priority_queue<weight_node, vector <weight_node>,
-    greater<weight_node> > q;
-    // Empezar el MST desde 0 (cambiar si el nodo 0 no existe)
-    q.push(weight_node(0, 0));
-    while (!q.empty()){
-        int u = q.top().second;
-        int w = q.top().first;
-        q.pop();
+  for (int i = 0; i <= n; ++i) visited[i] = false;
+  int total = 0;
+  priority_queue<weight_node, vector <weight_node>,
+  greater<weight_node> > q;
+  // Empezar el MST desde 0 (cambiar si el nodo 0 no existe)
+  q.push(weight_node(0, 0));
+  while (!q.empty()){
+    int u = q.top().second;
+    int w = q.top().first;
+    q.pop();
 
-        if (visited[u]) continue;
-        visited[u] = true;
-        total += w;
-        for (int i = 0; i < g[u].size(); ++i){
-            int v = g[u][i].first;
-            int next_w = g[u][i].second;
-            if (!visited[v]){
-                q.push(weight_node(next_w, v));
-            }
-        }
+    if (visited[u]) continue;
+    visited[u] = true;
+    total += w;
+    for (int i = 0; i < g[u].size(); ++i){
+      int v = g[u][i].first;
+      int next_w = g[u][i].second;
+      if (!visited[v]){
+          q.push(weight_node(next_w, v));
+      }
     }
-    return total;
+  }
+  return total;
 }
 
 int main(){
-    //Nodo 0 se une al 1 con peso 1
-    g[0].pb(edge(1,1));
-    //Nodo 0 se une al 2 con peso 2
-    g[0].pb(edge(2,2));
-    //Nodo 0 se une al 3  con peso 3
-    g[0].pb(edge(3,3));
-    g[1].pb(edge(5,4));
-    g[2].pb(edge(4,5));
-    g[3].pb(edge(4,1));
-    cout << prim(4);
-    return 0;
+  //Nodo 0 se une al 1 con peso 1
+  g[0].pb(edge(1,1));
+  //Nodo 0 se une al 2 con peso 2
+  g[0].pb(edge(2,2));
+  //Nodo 0 se une al 3  con peso 3
+  g[0].pb(edge(3,3));
+  g[1].pb(edge(5,4));
+  g[2].pb(edge(4,5));
+  g[3].pb(edge(4,1));
+  cout << prim(4);
+  return 0;
 }

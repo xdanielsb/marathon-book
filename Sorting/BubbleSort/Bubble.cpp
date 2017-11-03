@@ -8,14 +8,11 @@ inline void sort(ll *arr, int size){
       if (arr[j] > arr[j+1])
         swap(arr[j], arr[j+1]);
 }
-
 int main(){
     int size =8;
     ll *data  = new ll[size];
-    forn(i, 0, size)
-        scanf("%lld", &data[i]);
+    forn(i, 0, size) scanf("%lld", &data[i]);
     sort(data, size);
-    forn(i, 0, size)
-        printf("%lld ",data[i]);
+    forn(i, 0, size) printf("%lld ",data[i]);
     return 0;
 }

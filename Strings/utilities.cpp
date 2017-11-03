@@ -17,7 +17,7 @@ string toString(double d){
 }
 
 void tolowers(string &data){
-   transform(data.begin(), data.end(), data.begin(), ::tolower);
+ transform(data.begin(), data.end(), data.begin(), ::tolower);
 }
 
 vs split(string line, char d){
