@@ -6,16 +6,16 @@ vector < int > g[NUM_NODES];
 int vis[NUM_NODES];
 enum {WHITE, GRAY, BLACK};
 void dfs(int o){
-    vis [o] = GRAY; //semi-visited
-    for (int i = 0; i < g[o].size(); i++){
-        int v = g[o][i];
-        if (vis[v] == GRAY)
-              cout << "Cycle to " << o <<  endl;
-        // visit neighbors
-        else if (vis[v] == WHITE) dfs(v);
-    }
-    cout << o << endl;
-    vis[o] = BLACK; //visited;
+  vis [o] = GRAY; //semi-visited
+  for (int i = 0; i < g[o].size(); i++){
+      int v = g[o][i];
+      if (vis[v] == GRAY)
+            cout << "Cycle to " << o <<  endl;
+      // visit neighbors
+      else if (vis[v] == WHITE) dfs(v);
+  }
+  cout << o << endl;
+  vis[o] = BLACK; //visited;
 }
 int main(){
     g[0].pb(1);  g[0].pb(2);

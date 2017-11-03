@@ -8,12 +8,12 @@ using namespace std;
  */
 typedef double ld;
 struct point {
-    ld x, y;
-    point(){}
-    point(ld x, ld y){
-      this->x = x;
-      this->y = y;
-    }
+  ld x, y;
+  point(){}
+  point(ld x, ld y){
+    this->x = x;
+    this->y = y;
+  }
 };
 struct vert {
     point o,d;

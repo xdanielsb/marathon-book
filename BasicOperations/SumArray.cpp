@@ -2,22 +2,22 @@
 using namespace std;
 typedef vector<int> vi;
 inline void show(vi &n2){
-    for (int i = 0; i < n2.size() ; i++){
-        cout << n2[i];
-    }
-    cout << endl;
+  for (int i = 0; i < n2.size() ; i++){
+    cout << n2[i];
+  }
+  cout << endl;
 }
 inline vi sum_arrays(vi &a1, vi &a2){
-    int tam = a1.size();
-    vi result(tam + 1,0);
-    int carry = 0, aux = 0;
-    for (int i = tam; i>= 0; i--){
-        aux = a1[i] + a2[i]+ carry;
-        result[i+1] = aux % 10;
-        carry  = aux >= 10 ? 1 : 0;
-    }
-    result[0] = carry;
-    return result;
+  int tam = a1.size();
+  vi result(tam + 1,0);
+  int carry = 0, aux = 0;
+  for (int i = tam; i>= 0; i--){
+    aux = a1[i] + a2[i]+ carry;
+    result[i+1] = aux % 10;
+    carry  = aux >= 10 ? 1 : 0;
+  }
+  result[0] = carry;
+  return result;
 }
 
 int main(){

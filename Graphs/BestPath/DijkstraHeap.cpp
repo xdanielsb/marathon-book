@@ -47,14 +47,14 @@ inline void dijkstra(vve &adj, int src, int num_nodes){
 }
 
 int main(){
-		int nodes =5;
-    vve adj(nodes);
-		//from             to - weight
-		adj[0].pb(edge(1, 6));
-		adj[0].pb(edge(2, 2));
-		adj[1].pb(edge(3, 5));
-		adj[1].pb(edge(4, 7));
-    int src = 1;
-    dijkstra(adj, src, nodes);
-    return 0;
+	int nodes =5;
+  vve adj(nodes);
+	//from             to - weight
+	adj[0].pb(edge(1, 6));
+	adj[0].pb(edge(2, 2));
+	adj[1].pb(edge(3, 5));
+	adj[1].pb(edge(4, 7));
+  int src = 1;
+  dijkstra(adj, src, nodes);
+  return 0;
 }

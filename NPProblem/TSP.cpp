@@ -16,30 +16,30 @@ double dist(pdd _from, pdd _to){
 }
 
 vi tsp(vpdd cities, int n){
-	 vi res(n);
-	 vb used(n);
-	 res [0] = 0;
-	 used [0] = true;
-	 int best ;
-	 for (int i = 1 ; i < n ;i++){
-	 		best = -1;
-	 		for (int j = 0; j < n ; j++){
-	 			if(!used[j]){
-	 				if(-1 == best){
-		 				best = j;
-		 				continue;
-					}
-		 			double dist1 = dist(cities[res[i-1]], cities[j]);
-		 			double dist2 = dist(cities[res[i-1]], cities[best]);
-		 			if(dist1 < dist2){
-		 				best = j;	
-					}	
+ vi res(n);
+ vb used(n);
+ res [0] = 0;
+ used [0] = true;
+ int best ;
+ for (int i = 1 ; i < n ;i++){
+ 		best = -1;
+ 		for (int j = 0; j < n ; j++){
+ 			if(!used[j]){
+ 				if(-1 == best){
+	 				best = j;
+	 				continue;
+				}
+	 			double dist1 = dist(cities[res[i-1]], cities[j]);
+	 			double dist2 = dist(cities[res[i-1]], cities[best]);
+	 			if(dist1 < dist2){
+	 				best = j;
 				}
 			}
-			res[i] = best;
-			used[best] = true;
-	 }
-	 return res;
+		}
+		res[i] = best;
+		used[best] = true;
+ }
+ return res;
 }
 
 
@@ -47,7 +47,7 @@ int main (){
   #ifdef LOCAL
   	freopen("in.c", "r", stdin);
   	//freopen("out.c", "w", stdout);
-  #endif 
+  #endif
   int numCities;
   cin >> numCities;
   vpdd cities(numCities);

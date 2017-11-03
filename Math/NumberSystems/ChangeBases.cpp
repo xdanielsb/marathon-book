@@ -21,7 +21,6 @@ string changeBase(int num, int ob, int db){
   if (ob == 10) return tob(num, db);
   return tob(to10(num, ob, 0), db);
 }
-
 int main(){
   cout << changeBase(8757,2,16) <<endl;
 }

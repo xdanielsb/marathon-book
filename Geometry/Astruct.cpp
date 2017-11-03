@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
-
 #define INF 1e9
 #define EPS 1e-9
-#define PI acos(-1.0) 
+#define PI acos(-1.0)
 #define showi(x) cout << #x << " " << x << endl;
 
 using namespace std;
-
 
 struct point {
   double x, y;
@@ -44,37 +42,37 @@ struct line {
     m = INF;
     return INF;
   }
-  
+
 };
 double cross(point &o, point &a, point &b) {
     return (a.x - o.x)*(b.y - o.y) - (a.y - o.y)*(b.x - o.x);
 }
-bool areParallel(line l1, line l2) {       
+bool areParallel(line l1, line l2) {
   return fabs(l1.slope()-l2.slope())<EPS ;
 }
 double distToLine(point p, line l1) {
   // formula: c = a + u * ab
-  point a = l1.o, b = l1.d, c; 
+  point a = l1.o, b = l1.d, c;
   point ap = p-a, ab = b-a;
   double u = ap.dot(ab) / ab.norm();
-  c = a + ab*u; 
+  c = a + ab*u;
   return c.dist(p);
-} 
+}
 
 double distToLineSegment(point p, line l1) {
-  point a = l1.o, b = l1.d, c; 
+  point a = l1.o, b = l1.d, c;
   point ap = p-a, ab = b-a;
   double u = ap.dot(ab) / ab.norm();
-  if (u < 0.0) { 
+  if (u < 0.0) {
     c = point(a.x, a.y);  // closer to a
-    return p.dist(a); 
+    return p.dist(a);
   }
   if (u > 1.0) {
     c = point(b.x, b.y);  // closer to b
     return p.dist(b);
   }
-  return distToLine(p, line(a, b)); 
-}    
+  return distToLine(p, line(a, b));
+}
 
 int main(){
   point a(0,4);

@@ -1,8 +1,9 @@
 #include<cstdio>
 using namespace std;
 int gcd(int a, int b){
-    if(b == 0) return a;
-    return gcd(b, a % b);
+    if(a == b) return a;
+    if(a > b) gcd(a-b, b);
+    return gcd(a, b-a);
 }
 int lcm(int n1, int n2){
     return (n1 * n2) / gcd(n1,n2);

@@ -3,7 +3,6 @@
     ob -> origin base
     od -> destiny base
 """
-
 chars = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
 def changeBase(number, ob,od):

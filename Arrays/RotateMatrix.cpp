@@ -14,28 +14,19 @@ void transpose() {
   	for (int j=i; j<C; j++)
       swap(arr[i][j], arr[j][i]);
 }
-// anticlockwise rotate matrix by 90 degree
+/* anticlockwise rotate matrix by 90 degree*/
 void rotate90(){
     transpose();
     reverseColumns();
 }
- 
-void show(){
-  for (int i=0; i<R; i++){
-    for (int j=0; j<C; j++)
-      cout << arr[i][j] << " ";
-    cout<<'\n';
- }
-}
- 
+
 int main() {
-//check 
+//check
     int aux [R][C]= { {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-        {13, 14, 15, 16}
-    };
+                      {5, 6, 7, 8},
+                      {9, 10, 11, 12},
+                      {13, 14, 15, 16}
+                    };
     rotate90();
-    show();
     return 0;
 }

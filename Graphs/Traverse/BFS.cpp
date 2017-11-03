@@ -25,14 +25,14 @@ void bfs(int origin){
 }
 
 int main(){
-    int num_nodes = 5;
-    dis.assign(num_nodes, -1);
-    graph.resize(num_nodes);
-    graph[0].pb(1);
-    graph[0].pb(2);
-    graph[0].pb(3);
-    graph[1].pb(4);
-    bfs(0);
-    show_distances();
-    return 0;
+  int num_nodes = 5;
+  dis.assign(num_nodes, -1);
+  graph.resize(num_nodes);
+  graph[0].pb(1);
+  graph[0].pb(2);
+  graph[0].pb(3);
+  graph[1].pb(4);
+  bfs(0);
+  show_distances();
+  return 0;
 }

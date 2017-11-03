@@ -2,7 +2,10 @@
 using namespace std;
 typedef long long ll;
 ll  *f;
-
+/*REFERENCES
+ * https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form
+ * http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+ */
 int fib(ll n){
     if (n == 0)  return 0;
     if (n == 1 || n == 2) return (f[n] = 1);
