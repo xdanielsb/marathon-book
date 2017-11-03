@@ -17,9 +17,9 @@ int ways(int target, int numCoins){
 }
 
 int waysdp(int target, int numCoins){
-	for( int i=0; i< coins.size(); i++) dp[i][0] = 1;
+	for( int i=0; i< coins.size(); i++) dp[0][i] = 1;
 	for(int i = 1 ; i<= target; i++){
-		for (int c = 0; c < coins.size(); c++){
+		for (int c = 0; c < numCoins; c++){
 			//B
 			int x =0 , y = 0;
 			if(i-coins[c] >= 0) x = dp[i - coins[c]][c];
@@ -29,10 +29,13 @@ int waysdp(int target, int numCoins){
       dp[i][c] = x + y;
 		}
 	}
+	return dp[target][numCoins-1];
 }
 
 int main(){
-	coins.insert(coins.end(), {1,3,9});
-	cout <<  ways(9, coins.size());
+	coins.insert(coins.end(), {1,2,3,9});
+	cout <<  ways(9, coins.size()) <<endl;
+	cout << waysdp(9, coins.size()) <<endl;
 	return 0;
 }
+
