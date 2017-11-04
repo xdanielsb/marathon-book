@@ -4,7 +4,7 @@
 #define pb push_back
 using namespace std;
 typedef long long lld;
-int Z[MAX]; //zarray
+int z[MAX]; //zarray
 vector<int> matches;
 
 //Complexity: O(N + M)
@@ -16,29 +16,28 @@ inline void zAlgorithm(string s, int m){
     if (i > r) {
       l = r = i;
       while (r < len && s[r-l] == s[r]) r++;
-      Z[i] = r-l;
+      z[i] = r-l;
       r--;
     }else {
       int k = i - l;
-      if (Z[k] < r-i+1) Z[i] = Z[k];
+      if (z[k] < r-i+1) z[i] = z[k];
       else {
         l = i;
         while (r < len && s[r-l] == s[r]) r++;
-        Z[i] = r - l;
+        z[i] = r - l;
         r--;
       }
     }
-    if (Z[i] == m) matches.pb(i - m - 1);
+    if (z[i] == m) matches.pb(i - m - 1);
   }
 }
 
 int main() {
-    string haystack = "abcabc", needle = "abc";
-    int n = haystack.size(), m = needle.size();
-    zAlgorithm(needle + "#" + haystack, m);
-    cout << ("locations where start to match. \n");
-    for (int i=0;i<matches.size();i++) cout << matches[i] << " ";
-    cout << endl <<"Number of matches: " << matches.size() << endl;
-
-    return 0;
+  string haystack = "abcabc", needle = "abc";
+  int n = haystack.size(), m = needle.size();
+  zAlgorithm(needle + "#" + haystack, m);
+  cout << ("locations where start to match. \n");
+  for (int i=0;i<matches.size();i++) cout << matches[i] << " ";
+  cout << endl <<"Number of matches: " << matches.size() << endl;
+  return 0;
 }
