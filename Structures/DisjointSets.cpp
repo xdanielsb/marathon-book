@@ -2,26 +2,24 @@
 using namespace std;
 typedef vector<int> vi;
 struct union_find {
-  vi data, pe;
-  union_find(int n) : data(vi(n)), pe(vi(n)) {
-    for(int i=0; i<data.size(); i++)
-      data[i] = i;
-  }
+  vi p;
+  //initialize all elements with -1
+  union_find(int n) : p(n, -1) { }
   int find(int x) {
-    if(x == data[x]) return x;
-    data[x] = find(data[x]);
-    return data[x];
+    return p[x] < 0 ? x : p[x] = find(p[x]);
   }
   bool unite(int x, int y) {
-    int px = find(x);
-    int py = find(y);
-    if(px == py) return false;
-    if(pe[px] > pe[py]) swap(px, py);
-    pe[px] += pe[py];
-    data[py] = px;
+    int xp = find(x), yp = find(y);
+    if (xp == yp) return false;
+    if (p[xp] > p[yp]) swap(xp,yp);
+    p[xp] += p[yp], p[yp] = xp; //add -1 if merge
     return true;
   }
+  int size(int x) {
+     return -p[find(x)];
+  }
 };
+
 int main() {
     union_find uf(10);
     uf.unite(0, 2);
