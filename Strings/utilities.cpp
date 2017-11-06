@@ -8,18 +8,21 @@ int toNum(string a){
 	toNum >> num;
 	return num;
 }
-
 string toString(double d){
   stringstream ss;
-  ss << fixed << setprecision(10) << fl;
+  ss << fixed << setprecision(10) << d;
   string num = ss.str();
   return num;
 }
-
 void tolowers(string &data){
  transform(data.begin(), data.end(), data.begin(), ::tolower);
 }
-
+void replace(string &a,  string &from, string &to){
+	int pos;
+	while((pos = a.find(from)) != string::npos){
+		a.replace(pos, to.size(), to);	
+	}
+}
 vs split(string line, char d){
 	vector < string > elements;
 	stringstream ss(line);
@@ -45,5 +48,8 @@ int main(){
   cout << (isxdigit(a) ?"true":"false") << endl;
   cout << (char)tolower(a) << endl;
   cout << (char)toupper(a) << endl;
+  string hay ="hellohowareyouhow",  ned ="whatare", from= "how";
+  replace(hay, from, ned);
+  cout << hay <<endl;
   return 0;
 }
