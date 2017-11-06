@@ -18,9 +18,10 @@ void tolowers(string &data){
  transform(data.begin(), data.end(), data.begin(), ::tolower);
 }
 void replace(string &a,  string &from, string &to){
-	int pos;
-	while((pos = a.find(from)) != string::npos){
+	int pos=0;
+	while((pos = a.find(from,pos)) != string::npos){
 		a.replace(pos, to.size(), to);	
+		pos+=to.size();
 	}
 }
 vs split(string line, char d){
