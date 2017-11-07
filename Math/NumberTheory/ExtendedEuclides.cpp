@@ -35,6 +35,19 @@ void extended(ll a, ll b){
 	arr[1] = x;
 	arr[2] = y;
 }
+/*
+
+	ax + by  = c
+	mcd(a,b) = d
+	ax0 + by0 = d 
+	c = d * c'
+	
+	Bezouts identity
+	
+		X = x0 * c' - (b/d) * k
+		Y = y0 * c' + (a/d) * k
+		
+*/
 
 int main(){
 	ll a = 20, b = 50;
