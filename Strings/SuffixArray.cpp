@@ -15,9 +15,10 @@ bool cmp(int i, int j) {
 
 void suffix_array() {
   for(int i=0; i<n; i++) {
-    sa[i] = i; rk[i] = s[i]; rk2[i] = 0;
+    sa[i] = i;
+		rk[i] = s[i];
+		rk2[i] = 0;
   }
-
   for(int l=1; l<n; l<<=1) {
     for(int i=0; i<n; i++) {
       rk2[i] = ((ll) rk[i] << 32) + (i + l < n ? rk[i + l] : -1);
@@ -29,6 +30,8 @@ void suffix_array() {
       else rk[sa[i]] = i;
     }
   }
+  for(int i =0; i<n; i++)
+  	cout << sa[i] <<endl;
 }
 
 void build_lcp() {
@@ -47,17 +50,23 @@ ii LCS() {
   int i, ind = 0, lcs = -1;
   for (i = 1; i < n; i++) {
       if (((sa[i] < n - m - 1) != (sa[i - 1] < n - m - 1)) && lcp[i] > lcs) {
-          lcs = lcp[i]; ind = i;
+          lcs = lcp[i]; 
+					ind = i;
       }
   }
   return ii(lcs, ind);
 }
 
 int main() {
-  string a = "panaderia", b = "asdsadpanaderiaasdasd";
-  s = a + "#" + b + "$";
-  n = s.size(); m = b.size();
-  suffix_array(); build_lcp();
+  //string a = "panaderia", b = "asdsadpanaderiaasdasd";
+  //s = a + "#" + b + "$";
+  s = "banana"
+  n = s.size(); 
+	m = b.size();
+  suffix_array();
+	build_lcp();//longest common prefix
+	
+	
   ii result = LCS();
   cout << result.F << ' ' << result.S << endl; // 9 25
   cout << s.substr(sa[result.S], result.F) << '\n'; //panaderia

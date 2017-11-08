@@ -2,7 +2,7 @@
 #define INF 1e9
 #define EPS 1e-9
 #define PI acos(-1.0)
-#define showi(x) cout << #x << " " << x << endl;
+#define debug(x) cout << #x << " " << x << endl;
 
 using namespace std;
 
@@ -59,7 +59,7 @@ double distToLine(point p, line l1) {
   return c.dist(p);
 }
 
-double distToLineSegment(point p, line l1) {
+double distToSegment(point p, line l1) {
   point a = l1.o, b = l1.d, c;
   point ap = p-a, ab = b-a;
   double u = ap.dot(ab) / ab.norm();
@@ -86,6 +86,6 @@ int main(){
   cout << "m2= "<< l2.slope() << endl;
   cout << "parallel l1 || l2? = " << (areParallel(l1, l2)?"true": "false") << endl;
   cout << "dist from point to line= " << distToLine(c, l1) << endl;
-  cout << "dist from point to segment= " << distToLineSegment(c, l1) << endl;
+  cout << "dist from point to segment= " << distToSegment(c, l1) << endl;
   return 0;
 }

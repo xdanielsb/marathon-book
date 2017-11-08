@@ -1,24 +1,22 @@
 #include<iostream>
 using namespace std;
-
-/*Generate all unique
-  partitions of an integer
+/*
+  Generate all unique
+  partitions of a given integer
 */
-
-void printArray(int p[], int n){
+void print(int p[], int n){
 	for (int i = 0; i < n; i++)
-	cout << p[i] << " ";
+		cout << p[i] << " ";
 	cout << endl;
 }
 
-void printAllUniqueParts(int n){
-	int p[n]; 
+void partitions(int n){
+	int p[n];
 	int k = 0;
-	p[k] = n; 
+	p[k] = n;
 
 	while (true){
-		// print current partition
-		printArray(p, k+1);
+		print(p, k+1);
 		// Find the rightmost non-one value in p[]. Also, update the
 		// rem_val so that we know how much value can be accommodated
 		int rem_val = 0;
@@ -48,8 +46,7 @@ void printAllUniqueParts(int n){
 // Driver program to test above functions
 int main(){
 	cout << "All Unique Partitions of 5 \n";
-	printAllUniqueParts(5);
+	partitions(5);
 
 	return 0;
 }
-

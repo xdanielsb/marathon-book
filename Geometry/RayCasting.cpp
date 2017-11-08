@@ -46,28 +46,28 @@ inline bool point_on_segment(polygon v,  point c){
  * false outside
  */
 bool point_in_polygon(point p, polygon a){
-    bool inside = false;
-    int cant = a.size();
-    for (int i=0;i<cant;i++){
-        int j = (i+1) % cant;
-        point aux = a[i];
-        point nxt = a[j];
-        bool cond1 = (p.y < aux.y != p.y < nxt.y);
-        bool cond2 = (p.x < aux.x + (nxt.x - aux.x) * (p.y - aux.y) / (nxt.y - aux.y));
-        if ( cond1 && cond2 ){
-            inside = !inside;
-        }
+  bool inside = false;
+  int cant = a.size();
+  for (int i=0;i<cant;i++){
+    int j = (i+1) % cant;
+    point aux = a[i];
+    point nxt = a[j];
+    bool cond1 = (p.y < aux.y != p.y < nxt.y);
+    bool cond2 = (p.x < aux.x + (nxt.x - aux.x) * (p.y - aux.y) / (nxt.y - aux.y));
+    if ( cond1 && cond2 ){
+      inside = !inside;
     }
-    return inside;
+  }
+  return inside;
 }
 inline void test_point(polygon v, point pun){
-    if(point_on_segment(v,pun)){
-        cout << "on"<<endl;
-    }else if (point_in_polygon(pun, v)){
-        cout << "in"<<endl;
-    }else{
-        cout <<"out"<<endl;
-    }
+  if(point_on_segment(v,pun)){
+      cout << "on"<<endl;
+  }else if (point_in_polygon(pun, v)){
+      cout << "in"<<endl;
+  }else{
+      cout <<"out"<<endl;
+  }
 }
 int main(){
     polygon p;

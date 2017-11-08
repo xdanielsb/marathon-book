@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
+// (a^b)%c
 ll expo(ll a, ll b, ll c){
   if (b == 0) return 1;
   if (b % 2 == 0) {

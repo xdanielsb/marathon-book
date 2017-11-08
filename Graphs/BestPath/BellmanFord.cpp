@@ -36,6 +36,7 @@ int main() {
     vi d(5);
     int src = 0;
     init(d, src);
+              //to-weight
     adj[0].pb({1, 6}); adj[0].pb({3, 7});
     adj[1].pb({2, 5}); adj[1].pb({3, 8});
     adj[1].pb({4, -4}); adj[2].pb({1, -2});

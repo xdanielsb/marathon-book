@@ -12,7 +12,7 @@ inline ll get_max_sum(ll data[8], int size){
   ll max_ending_here = data[0];
   forn(i, 1, size){
     max_ending_here = max(data[i], \
-    data[i] + max_ending_here);
+                          data[i] + max_ending_here);
     max_so_far = max(max_so_far, max_ending_here);
   }
   return max_so_far;

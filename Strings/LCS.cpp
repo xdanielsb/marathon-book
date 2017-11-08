@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 using namespace std;
+/*
+	Longest common subsequence
+*/
 const int M_MAX = 20; // Máximo size del String 1
 const int N_MAX = 20; // Máximo size del String 2
 int m, n; // Size de Strings 1 y 2
@@ -20,6 +23,7 @@ int lcs (int m, int n) {
 int main(){
   X = "XMJYAUZ";
   Y = "MZJAWXU";
+  
   cout << lcs(X.size(), Y.size()) <<endl;
   //Sol = MJAU
   return 0;

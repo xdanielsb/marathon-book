@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 /*
 	Graham Scan O(nlogn)
 */
@@ -13,11 +12,11 @@ struct point {
   }
 };
 point p0;
-point nextToTop(stack<point> &S){
-  point p = S.top();
-  S.pop();
-  point res = S.top();
-  S.push(p);
+point nextToTop(stack<point> &st){
+  point p = st.top();
+  st.pop();
+  point res = st.top();
+  st.push(p);
   return res;
 }
 int swap(point &p1, point &p2){
@@ -73,17 +72,18 @@ stack<point> convexHull(point points[], int n){
        S.pop();
     S.push(points[i]);
  }
-  return S;
+ return S;
 }
 int main(){
-    point points[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
-                      {0, 0}, {1, 2}, {3, 1}, {3, 3}};
-    int n = sizeof(points)/sizeof(points[0]);
-    stack <point > s = convexHull(points, n);
-    while (!s.empty()){
-     point p = s.top();
-     cout << "(" << p.x << ", " << p.y <<")" << endl;
-     s.pop();
-   	}
-    return 0;
+  point points[] = {{0, 3}, {1, 1}, {2, 2}, {4, 4},
+                    {0, 0}, {1, 2}, {3, 1}, {3, 3}};
+  int n = sizeof(points)/sizeof(points[0]);
+  stack <point > s = convexHull(points, n);
+  cout << "ConvexHull:\n";
+  while (!s.empty()){
+   point p = s.top();
+   cout << "\t(" << p.x << ", " << p.y <<")" << endl;
+   s.pop();
+ 	}
+  return 0;
 }

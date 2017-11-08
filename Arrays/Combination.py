@@ -1,20 +1,23 @@
-def combination(array, data, start, end, index, r):
+array = [3,2,4,0]
+n = len (array)
+r = 3
+
+def combination(data, start, index):
     if (index == r):
         print (data)
         return
-    for i in range(start, end+1):
-        """  end-i+1 >= r-index" makes sure that
+    for i in range(start, n):
+        """  n - i + 1 >= r - index  makes sure that
              including one element  at index will
              make a combination with remaining
-             elementsat remaining positions
+             elements at remaining positions
         """
-        if (end - i + 1 >= r - index):
+        if (n - i + 1 >= r - index):
             data[index] = array[i]
-            combination(array, data, i+1, end, index + 1, r)
+            combination(data, i+1 , index + 1)
 
-def get_combinations(array, r, n):
-    combination(array, [0] * r, 0, n-1,  0, r)
+def get_combinations(r):
+    combination([0] * r, 0,  0)
 
 if __name__ == "__main__":
-    array = [0,1,2,3,4,5]
-    get_combinations(array, r=3, n=len(array))
+    get_combinations(r=3)
