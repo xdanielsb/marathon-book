@@ -36,11 +36,11 @@ vector <ll> fact(long long a){
   return ans;
 }
 int main(){
-    build_sieve();
-    ll num_to_fact= 128234234LL;
-    vector < long long > vll = fact(num_to_fact);
-    for (int x=0; x< vll.size(); x++){
-        cout << vll[x] << " ";
-    }
-    cout << endl;
+  build_sieve();
+  ll num_to_fact= 128234234LL;
+  vector < ll > vll = fact(num_to_fact);
+  for (int x=0; x< vll.size(); x++){
+    cout << vll[x] << " ";
+  }
+  cout << endl;
 }

@@ -1,15 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int TAM = 5;
-int arr[TAM];
+typedef long long ll;
+const ll TAM = 5;
+ll arr[TAM];
 /* Recursive
  * l -> left
  * r -> right
  * x -> element to search
  */
-int binarySearchRec(int l, int r, int x){
+ll binarySearchRec(ll l, ll r, ll x){
   if (r >= l){
-    int mid = l + (r - l)/2;
+    ll mid = l + (r - l)/2;
     // The element in the middle
     if (arr[mid] == x)  return mid;
     // Smaller of the middle element
@@ -25,9 +26,9 @@ int binarySearchRec(int l, int r, int x){
  * r -> right
  * x -> element to search
  */
-int binarySearchIte( int l, int r, int x){
+ll binarySearchIte( ll l, ll r, ll x){
   while (l <= r){
-    int m = l + (r-l)/2;
+    ll m = l + (r-l)/2;
     // The element in the middle
     if (arr[m] == x)  return m;
     // Smaller of the middle element
@@ -39,14 +40,14 @@ int binarySearchIte( int l, int r, int x){
   return -1;
 }
 
-int main(void){
+int main(){
     arr[0] = 2;
     arr[1] = 3;
     arr[2] = 4;
     arr[3] = 10;
     arr[4] = 40;
-   int x = 10;
-   int result = binarySearchIte(0, TAM-1, x);
+   ll x = 10;
+   ll result = binarySearchIte(0, TAM-1, x);
    (result == -1)? printf("Element is not present in array")
                  : printf("Element is present at index %d \n", result);
    return 0;

@@ -14,6 +14,7 @@ int modular_pow(ll  base, int exponent, ll  modulus){
 	}
 	return result;
 }
+//take care if its' prime infinite loop
 ll  PollardRho(ll  n){
 	srand (time(NULL));
 	if (n==1) return n;
@@ -24,18 +25,18 @@ ll  PollardRho(ll  n){
 	ll d = 1;
 	cout << n << endl;
 	while (d==1){
+		cout << d<<endl;
 		x = (modular_pow(x, 2, n) + c + n)%n;
 		y = (modular_pow(y, 2, n) + c + n)%n;
 		y = (modular_pow(y, 2, n) + c + n)%n;
 		d = __gcd(abs(x-y), n);
 		if (d==n) return PollardRho(n);
 	}
-
 	return d;
 }
 
 int main(){
-	num = 124554;
+	num = 982451653;
 	printf("One of the divisors for %lld is %lld.",num, PollardRho(num));
 	return 0;
 }

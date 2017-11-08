@@ -14,17 +14,18 @@ using namespace std;
  * f(8) = 623
  * Wow a pretty good ALGORITHM
  */
-int Horner( int a[], int n, int x ){
-    int result = a[n];
-    for(int i=n-1; i >= 0 ; --i)
-        result = result * x + a[i];
-    return result;
+typedef long long ll;
+ll Horner( ll a[], ll n, ll x ){
+  ll result = a[n];
+  for(ll i=n-1; i >= 0 ; --i)
+    result = result * x + a[i];
+  return result;
 }
 int main(){
-    int grade = 3;
-               //-1 -2x -6x^2 +2x^3
-    int a[] = {-1,-2,-6,2};
-    int x = 8;
-    cout << Horner (a, grade, x);
-    return 0;
+  ll grade = 3;
+             //-1 -2x -6x^2 +2x^3
+  ll a[] = {-1,-2,-6,2};
+  ll x = 8;
+  cout << Horner (a, grade, x);
+  return 0;
 }

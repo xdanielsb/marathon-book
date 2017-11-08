@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
-#define numVertices 9
+#define V 9
 inline  int showSol(int dist[], int n){
   printf("numVerticesertex\tDistance from Source\n");
-  for (int i = 0; i < numVertices; i++)
+  for (int i = 0; i < V; i++)
     printf("%d\t%d\n", i, dist[i]);
 }
 int minDis(int dist[], bool is_set[]){
   int min = INT_MAX, min_index;
-  for (int v = 0; v < numVertices; v++){
+  for (int v = 0; v < V; v++){
     if (is_set[v] == false && dist[v] <= min){
       min = dist[v], min_index = v;
     }
@@ -15,27 +15,27 @@ int minDis(int dist[], bool is_set[]){
   return min_index;
 }
 
-inline  void dijkstra(int graph[numVertices][numVertices], int src){
-  int dist[numVertices];
-  bool is_set[numVertices];
-  for (int i = 0; i < numVertices; i++){
+inline  void dijkstra(int graph[V][V], int src){
+  int dist[V];
+  bool is_set[V];
+  for (int i = 0; i < V; i++){
     dist[i] = INT_MAX, is_set[i] = false;
   }
   dist[src] = 0;
-  for (int count = 0; count < numVertices-1; count++){
+  for (int count = 0; count < V-1; count++){
    int u = minDis(dist, is_set);
    is_set[u] = true;
-   for (int v = 0; v < numVertices; v++){
+   for (int v = 0; v < V; v++){
      if (!is_set[v] && graph[u][v]
              && dist[u] != INT_MAX
              && dist[u]+graph[u][v] < dist[v])
         dist[v] = dist[u] + graph[u][v];
    }
   }
-  showSol(dist, numVertices);
+  showSol(dist, V);
 }
 int main(){
-   int graph[numVertices][numVertices] =
+   int graph[V][V] =
     {{0, 4, 0, 0, 0, 0, 0, 8, 0},
      {4, 0, 8, 0, 0, 0, 0, 11, 0},
      {0, 8, 0, 7, 0, 4, 0, 0, 2},

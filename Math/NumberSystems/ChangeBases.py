@@ -14,13 +14,13 @@ def changeBase(number, ob,od):
     b -> base of the number n
     pos -> location of a sub-number in n
 """
-def to10(n, b, pos =0):
+def to10(n, b, mul=1):
    if n == 0: return 0
-   return (n % 10)* (b  ** pos) + to10(n / 10, b, pos+1)
+   return (n % 10)* mul + to10(n // 10, b, mul*b)
 
 """FROM TEN BASE TO ANOTHER BASE"""
 def tob(n, b):
-    if n == 0: return ""
+    if n == 0: return ''
     return   tob(n // b, b) + chars[n % b]
 
 def main():

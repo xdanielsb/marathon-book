@@ -18,6 +18,7 @@ double dist(pdd _from, pdd _to){
 vi tsp(vpdd cities, int n){
  vi res(n);
  vb used(n);
+ //Best path from city 0
  res [0] = 0;
  used [0] = true;
  int best ;

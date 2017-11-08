@@ -8,7 +8,7 @@ using namespace std;
 #define V 4  //number of vertex
 #define INF 9999999
 
-void print_sol(int dist[][V]){
+void show(int dist[][V]){
   printf ("shortest distances \n");
   for (int i = 0; i < V; i++){
     for (int j = 0; j < V; j++){
@@ -33,7 +33,7 @@ void floyd (int graph[][V]){
       }
     }
   }
-  print_sol(dist);
+  show(dist);
 }
 int main(){
     int graph[V][V] =

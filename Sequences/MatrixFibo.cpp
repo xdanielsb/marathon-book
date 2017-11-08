@@ -1,27 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-ll  *f;
-/*REFERENCES
- * https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form
- * http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
- */
-int fib(ll n){
-    if (n == 0)  return 0;
-    if (n == 1 || n == 2) return (f[n] = 1);
-    if (f[n])  return f[n];
-    int k = (n & 1)? (n+1)/2 : n/2;
-    if (n&1){
-      f[n] = (ll) fib(k) * fib(k) + fib(k-1) * fib(k-1) ;
-    }else{
-      f[n] = (2*fib(k-1) + fib(k))*fib(k);
-    }
-    return f[n];
-}
+ 
+const int MAX = 1000;
+int f[MAX] = {0};
+// Returns n'th fuibonacci number using table f[]
+int fib(int n){
+  // Base cases
+  if (n == 0) return 0;
+  if (n == 1 || n == 2) return (f[n] = 1);
+  // If fib(n) is already computed
+  if (f[n])   return f[n];
+  int k = (n & 1)? (n+1)/2 : n/2;
+  // Applyting above formula [Note value n&1 is 1
+  // if n is odd, else 0.
+  f[n] = (n & 1)? (fib(k)*fib(k) + fib(k-1)*fib(k-1))
+         : (2*fib(k-1) + fib(k))*fib(k);
 
+  return f[n];
+}
+ 
+/* Driver program to test above function */
 int main(){
-    ll n = 10;
-    f = new ll[n];
-    cout<< fib(n);
-    return 0;
+  int n = 9;
+  printf("%d ", fib(n));
+  return 0;
 }

@@ -25,18 +25,18 @@ int knapsack(int n, int W){
 }
 
 int main(){
-    int numObjects = 10;
-    int maxCapacity = 100;
-    dp = new int*[numObjects];
-    for (int i =0; i < maxCapacity; i++)
-      dp[i]= new int[maxCapacity];
+  int numObjects = 10;
+  int maxCapacity = 100;
+  dp = new int*[numObjects];
+  for (int i =0; i < maxCapacity; i++)
+    dp[i]= new int[maxCapacity];
 
-    w.resize(numObjects);
-    v.resize(numObjects);
-    int cont = numObjects;
-    for( int i = 1; i < numObjects; i++){
-        w[i] = i;
-        v[i] = cont--;
-    }
-    cout << knapsack(10, 100);
+  w.resize(numObjects);
+  v.resize(numObjects);
+  int cont = numObjects;
+  for( int i = 1; i < numObjects; i++){
+    w[i] = i;
+    v[i] = cont--;
+  }
+  cout << knapsack(10, 100);
 }

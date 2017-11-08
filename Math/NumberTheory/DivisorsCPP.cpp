@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef set<int> si;
+typedef long long ll;
+typedef set<ll> si;
 /* Get the divisors of a number */
-si divisores(int n) {
+si divisores(ll n) {
   si d;
-  int r = sqrt(n);
-  for(int i = 1; i <= r; i++) {
+  ll r = sqrt(n);
+  for(ll i = 1; i <= r; i++) {
     if(n % i == 0) {
       d.insert(i);
       d.insert(n / i);
@@ -15,7 +16,8 @@ si divisores(int n) {
 }
 int main() {
   si divi = divisores(10);
-  for (set<int>::iterator it=divi.begin(); it!=divi.end(); ++it)
-    printf("%d ", *it);
+  for(ll el: divi){
+  	cout << el <<endl;
+	}
   printf("\n");
 }

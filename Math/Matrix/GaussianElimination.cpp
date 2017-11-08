@@ -21,7 +21,7 @@ void backSub(){
 	}
 	printf("\nSolution for the system:\n");
 	for (int i=0; i<N; i++)
-		printf("%lf\n", x[i]);
+		printf("X%d= %lf\n", i, x[i]);
 }
 int forwardElim(){
 	for (int k=0; k<N; k++){
@@ -61,6 +61,12 @@ void gaussianElimination(){
 int main(){
 	//The last column represents the coefficients
 	//input matrix.in
+	/*
+		3
+		3.0 2.0 -4.0 3.0
+		2.0 3.0 3.0 15.0
+		5.0 -3 1.0 14.0
+	*/
 	cin >> N;
 	mat = new double*[N];
 	for (int i =0; i <=N; i++){
