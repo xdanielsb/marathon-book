@@ -10,6 +10,7 @@ int cnt[MAX];
 struct query {
 	int left;
 	int right;
+	int id;
 	void show(){
 		cout <<"["<< left << " "<< right <<"]"<<endl;
 	}
@@ -24,14 +25,17 @@ typedef vector < query > vq;
 
 int numDiff =0;
 vi arr;
+vi sols;
 
 
 void add(int pos){
-	numDiff += arr[pos];
+	cnt[arr[pos]]++;
+	if(cnt[arr[pos]] == 1 ) numDiff++; // new element
 }
 
 void remove(int pos){
-	numDiff -= arr[pos];
+	cnt[arr[pos]]--;
+	if(cnt[arr[pos]] == 0 ) numDiff--; //remove element
 }
 
 
@@ -41,17 +45,23 @@ int main(){
 	#endif
 	int numQueries, numElements;
 	//read elements
-	cin >> numElements >> numQueries;
+	cin >> numElements;
 	arr.resize(numElements);
 	for( int i=0; i<numElements; i++){
 		cin >> arr[i];
 	}
 	
+	cin >> numQueries;
 	//read queries
 	vq qs(numQueries);
+	sols.resize(numQueries);
 	for( int q=0; q<numQueries; q++){
 		cin >>  qs[q].left >> qs[q].right;
+		qs[q].left--;
+		qs[q].right--;
+		qs[q].id = q; 
 	}
+	
 	
 	//calc block size
 	block = sqrt(numElements);
@@ -83,8 +93,10 @@ int main(){
 			remove(currR-1);
 			currR--;
 		}
-		printf("Sum  from [%d, %d]= %d \n", q.left+1, q.right+1, numDiff);
+		sols[q.id] = numDiff;
 	}
-	
+	for(int i=0; i<numQueries; ++i){
+		cout << sols[i] <<endl;
+	}
 	return 0;
 }
