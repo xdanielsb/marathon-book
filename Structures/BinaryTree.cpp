@@ -1,35 +1,42 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-struct node {
-  int val = 0;
-  node * l = nullptr;
-  node * r = nullptr;
+struct node{
+	int val;
+	node *left;
+	node *right;
+	node( int v ){
+		val = v;
+		left = nullptr;
+		right = nullptr;
+	}
+	node* insert(node *n, int val){
+		if(n == nullptr ) return new node(val);	
+		if(n->val > val) n->left = insert(n->left, val);
+		else n->right = insert(n->right, val);
+	}
+	void show(node *n){
+		if(n!=nullptr){
+			show(n->left);
+			cout << n->val << " ";
+			show(n->right);
+		}
+	}
+	string gHash(node *n) {
+	 	string hash="";
+	 	if(n->right!=nullptr)
+	 		hash += "R"+gHash(n->right);
+		if(n->left!=nullptr)
+	 		hash += "L"+gHash(n->left);
+		return hash+"!";
+	 }
 };
-inline node* build(node *head, int value){
-  node *son = new node;
-  son->val = value;
-  if (head == nullptr) return son;
-  node * aux = head, * nxt = head;
-  while(nxt != nullptr){
-    aux = nxt;
-    if (value > nxt->val) nxt = nxt->r;
-      else nxt = nxt->l;
-  }
-  if(value > aux-> val) aux->r = son;
-  else aux->l = son;
-  return head;
-}
-inline void show(node* head){
-  if (head==nullptr) return;
-  show(head->l);
-  cout << head->val << endl;
-  show(head->r);
-}
+
 int main(){
-  node *head = new node;
-  head->val = 5;
-  head = build(head, 45);
-  head = build(head, 20);
-  show(head);
-  return 0;
+	node * root = new node(7);
+	root->insert(root,1);
+	root->insert(root,-1);
+	root->show(root);
+	
+	cout << endl<<root->gHash(root) <<endl;
+	return 0;
 }
