@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
+
 using namespace std;
+
 struct node{
 	int val;
 	node *left;
@@ -13,15 +15,17 @@ struct node{
 		if(n == nullptr ) return new node(val);	
 		if(n->val > val) n->left = insert(n->left, val);
 		else n->right = insert(n->right, val);
+		return n;
 	}
 	void show(node *n){
 		if(n!=nullptr){
 			show(n->left);
-			cout << n->val << " ";
+			cout << n->val <<" ";
 			show(n->right);
 		}
 	}
 	string gHash(node *n) {
+		if(n==nullptr) return "";
 	 	string hash="";
 	 	if(n->right!=nullptr)
 	 		hash += "R"+gHash(n->right);
