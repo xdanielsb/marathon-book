@@ -1,10 +1,6 @@
 #!/usr/bin/python
 """
-    ||   || ||=\\\  ||=== ||  || ||==|| ||    ||====|| || //
-    ||   || ||  || ||    ||  || ||  || ||=== ||    || ||//
-    ||   || ||  || ||==  ||  || ||  || ||    ||====|| ||\\\
-     =====   ==//  ||===  \\\//  ||==|| ||    ||    || || \\\\
-             ------Notebook Generator------
+   ------Notebook Generator------
 """
 import subprocess
 CONTENT_LATEX = "contentNotebook.tex"
@@ -33,7 +29,7 @@ def getSections(secs=[], aux={}, sec_name=None):
 
 def getStyle(filename):
     ext = filename.lower().split('.')[-1]
-    if ext in ['c', 'cc', 'cpp']: return 'cpp'
+    if ext in ['cc', 'cpp']: return 'cpp'
     elif ext in ['java']: return 'java'
     elif ext in ['py']: return 'py'
     else: return 'txt'
