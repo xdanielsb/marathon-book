@@ -31,8 +31,8 @@ int waysdp(int target, int numCoins){
 }
 
 int main(){
-	coins.insert(coins.end(), {1,2,3,9});
-	cout <<  ways(9, coins.size()) <<endl;
-	cout << waysdp(9, coins.size()) <<endl;
+	coins.insert(coins.end(), {1,3,9,27});
+	cout <<  ways(47, coins.size()) <<endl;
+	cout << waysdp(47, coins.size()) <<endl;
 	return 0;
 }

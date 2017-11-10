@@ -46,7 +46,7 @@ void partitions(int n){
 // Driver program to test above functions
 int main(){
 	cout << "All Unique Partitions of 5 \n";
-	partitions(5);
+	partitions(7);
 
 	return 0;
 }
