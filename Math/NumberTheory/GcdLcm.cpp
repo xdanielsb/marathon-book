@@ -1,10 +1,12 @@
 #include<cstdio>
 using namespace std;
 typedef long long ll;
-ll gcd(ll a, ll b){
-    if(a == b) return a;
-    if(a > b) gcd(a-b, b);
-    return gcd(a, b-a);
+ll mod( ll a, ll b){
+  return (b + (a %b )) %b;
+}
+ll gcd ( ll a, ll b){
+  if (b == 0 ) return a;
+  return gcd( b, mod( a , b) );
 }
 ll lcm(ll n1, ll n2){
     return (n1 *1LL* n2) / gcd(n1,n2);
