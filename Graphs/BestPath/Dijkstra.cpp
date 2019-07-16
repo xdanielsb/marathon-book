@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
 #define V 9
-inline  int showSol(int dist[], int n){
-  printf("numVerticesertex\tDistance from Source\n");
-  for (int i = 0; i < V; i++)
-    printf("%d\t%d\n", i, dist[i]);
-}
 int minDis(int dist[], bool is_set[]){
   int min = INT_MAX, min_index;
   for (int v = 0; v < V; v++){
@@ -32,7 +27,8 @@ inline  void dijkstra(int graph[V][V], int src){
         dist[v] = dist[u] + graph[u][v];
    }
   }
-  showSol(dist, V);
+  for( int i= 0; i < V; i++) 
+    cout << i << " " << dist[i] <<endl;
 }
 int main(){
    int graph[V][V] =
